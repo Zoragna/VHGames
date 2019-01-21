@@ -28,14 +28,15 @@ func _ready():
 		}
 	}
 	
+	
 	current_focused_button="Menu/Start"
 	get_node(current_focused_button).grab_focus()
 	get_node("Menu").visible=true
 	get_node("Options menu").visible=false
 
 
-func _on_Volume_changed():
-	get_node("son").volume_db=get_node("Options menu/Volume").value
+func _on_Volume_value_changed(value):
+	get_node("son").volume_db= value-24
 
 
 
@@ -102,4 +103,6 @@ func _input(event):
 	elif up:
 		if not (Input.get_joy_axis(0, JOY_ANALOG_LY) < -0.3 ) :
 			up=false
+
+
 

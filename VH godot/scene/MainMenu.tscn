@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scripts/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Imagine Dragons - Natural.wav" type="AudioStream" id=2]
 
 [node name="MainMenu" type="Node2D" index="0"]
 
@@ -107,10 +108,10 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
 min_value = 0.0
-max_value = 100.0
+max_value = 24.0
 step = 1.0
 page = 0.0
-value = 0.0
+value = 24.0
 exp_edit = false
 rounded = false
 editable = true
@@ -175,7 +176,7 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="son" type="AudioStreamPlayer" parent="." index="2"]
 
-stream = null
+stream = ExtResource( 2 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true
@@ -188,7 +189,7 @@ bus = "Master"
 
 [connection signal="pressed" from="Menu/Quit" to="." method="_on_Quit_pressed"]
 
-[connection signal="changed" from="Options menu/Volume" to="." method="_on_Volume_changed"]
+[connection signal="value_changed" from="Options menu/Volume" to="." method="_on_Volume_value_changed"]
 
 [connection signal="pressed" from="Options menu/Retour" to="." method="_on_Retour_pressed"]
 

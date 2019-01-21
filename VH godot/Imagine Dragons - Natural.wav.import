@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Imagine Dragons - Natural.wav-bc3c8e9da46e9a26c8b01e3049b46b1f.sample"
+
+[deps]
+
+source_file="res://Imagine Dragons - Natural.wav"
+dest_files=[ "res://.import/Imagine Dragons - Natural.wav-bc3c8e9da46e9a26c8b01e3049b46b1f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
