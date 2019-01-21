@@ -46,6 +46,16 @@ func _on_Start_pressed():
 func _on_Options_pressed():
 	get_node("Menu").visible = false
 	get_node("Options menu").visible = true
+	current_focused_button="Options menu/Volume"
+	get_node(current_focused_button).grab_focus()
+	
+	btns={"Options menu/Volume":{
+		"joy_down":"Options menu/Retour",
+		"joy_up":"Options menu/Retour"},
+		"Options menu/Retour":{
+		"joy_down":"Options menu/Volume",
+		"joy_up":"Options menu/Volume"}
+		}
 
 
 func _on_Quit_pressed():
@@ -55,6 +65,21 @@ func _on_Quit_pressed():
 func _on_Retour_pressed():
 	get_node("Options menu").visible=false
 	get_node("Menu").visible=true
+	current_focused_button="Menu/Start"
+	get_node(current_focused_button).grab_focus()
+	
+	btns= {"Menu/Start":{
+		"joy_down": "Menu/Options",
+		"joy_up":"Menu/Quit" },
+		"Menu/Options":{
+		"joy_down":"Menu/Quit",
+		"joy_up":"Menu/Start"}	,
+		"Menu/Quit":{
+		"joy_down":"Menu/Start",
+		"joy_up":"Menu/Options"
+		}
+	}
+
 
 
 
