@@ -33,7 +33,6 @@ group = null
 text = "Start"
 flat = false
 align = 1
-_sections_unfolded = [ "Visibility" ]
 
 [node name="Options" type="Button" parent="Menu" index="1"]
 
@@ -183,16 +182,14 @@ autoplay = true
 mix_target = 1
 bus = "Master"
 
-[connection signal="button_down" from="Menu/Start" to="." method="_on_Start_button_down"]
+[connection signal="pressed" from="Menu/Start" to="." method="_on_Start_pressed"]
 
-[connection signal="button_down" from="Menu/Options" to="." method="_on_Options_button_down"]
+[connection signal="pressed" from="Menu/Options" to="." method="_on_Options_pressed"]
 
-[connection signal="visibility_changed" from="Menu/Options" to="." method="_on_Options_visibility_changed"]
-
-[connection signal="button_down" from="Menu/Quit" to="." method="_on_Quit_button_down"]
+[connection signal="pressed" from="Menu/Quit" to="." method="_on_Quit_pressed"]
 
 [connection signal="changed" from="Options menu/Volume" to="." method="_on_Volume_changed"]
 
-[connection signal="button_down" from="Options menu/Retour" to="." method="_on_Retour_button_down"]
+[connection signal="pressed" from="Options menu/Retour" to="." method="_on_Retour_pressed"]
 
 
