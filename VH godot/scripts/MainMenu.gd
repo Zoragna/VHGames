@@ -6,6 +6,7 @@ extends Node2D
 
 var btns
 var current_focused_button
+var current_panel
 
 const main_btns = {
 	"Menu/Start":{
@@ -37,7 +38,7 @@ func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	btns = main_btns
-
+	current_panel = "Menu"
 	current_focused_button="Menu/Start"
 	get_node(current_focused_button).grab_focus()
 	get_node("Menu").visible=true
@@ -52,6 +53,9 @@ func _on_Start_pressed():
 func _on_Options_pressed():
 	get_node("Menu").visible = false
 	get_node("Options menu").visible = true
+	
+	current_panel = "Options"
+	
 	current_focused_button="Options menu/Volume"
 	get_node(current_focused_button).grab_focus()
 	btns = options_btns
@@ -62,6 +66,9 @@ func _on_Quit_pressed():
 func _on_Retour_pressed():
 	get_node("Options menu").visible=false
 	get_node("Menu").visible=true
+	
+	current_panel = "Menu"
+	
 	current_focused_button="Menu/Start"
 	get_node(current_focused_button).grab_focus()
 	btns= main_btns
@@ -72,19 +79,31 @@ func change_button(direction):
 
 func _input(event):
 	#get_node(current_focused_button).grab_focus()
-	if event is InputEventKey : #&& !event.is_echo() :
-		if event.is_action_pressed("ui_down"):
-			change_button("down")
-		elif event.is_action_pressed("ui_up"):
-			change_button("up")
-	elif event is InputEventJoypadMotion :
-		if get_node("Timer").is_stopped() :
-			if get_node("Timer/TimerTimer").is_stopped() :
-				if event.axis == JOY_AXIS_0 && event.axis_value > 0.3 :
-					change_button("down")
-				elif event.axis == JOY_AXIS_0 && event.axis_value < 0.3 :
-					change_button("up")
-				get_node("Timer").start()
+	if current_panel == "Menu" :
+		if event is InputEventKey : #&& !event.is_echo() :
+			if event.is_action_pressed("ui_down"):
+				change_button("down")
+			elif event.is_action_pressed("ui_up"):
+				change_button("up")
+		elif event is InputEventJoypadMotion :
+			if get_node("Timer").is_stopped() :
+				if get_node("Timer/TimerTimer").is_stopped() :
+					if event.axis == JOY_AXIS_0 && event.axis_value > 0.3 :
+						change_button("down")
+					elif event.axis == JOY_AXIS_0 && event.axis_value < 0.3 :
+						change_button("up")
+					get_node("Timer").start()
+	elif current_panel == "Options" :
+		if event is InputEventKey :
+			if current_focused_button == "Options menu/Volume" :
+				if event.is_action_pressed("ui_left"):
+					get_node("Options menu/Volume").value += 1
+				elif event.is_action_pressed("ui_right"):
+					get_node("Options menu/Volume").value -= 1
+			if event.is_action_pressed("ui_down"):
+				change_button("down")
+			elif event.is_action_pressed("ui_up"):
+				change_button("up")
 
 func _on_Quit_focus_entered():
 	pass # replace with function body
