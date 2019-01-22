@@ -7,7 +7,10 @@ path="res://.import/Imagine Dragons - Natural.wav-bc3c8e9da46e9a26c8b01e3049b46b
 [deps]
 
 source_file="res://Imagine Dragons - Natural.wav"
+source_md5="36d0a49be029d280b003a324b2300e10"
+
 dest_files=[ "res://.import/Imagine Dragons - Natural.wav-bc3c8e9da46e9a26c8b01e3049b46b1f.sample" ]
+dest_md5="d5c436b03a6e53474d7797a3753e6c55"
 
 [params]
 
