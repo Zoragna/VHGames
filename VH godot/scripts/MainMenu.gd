@@ -37,6 +37,7 @@ func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	btns = main_btns
+
 	current_focused_button="Menu/Start"
 	get_node(current_focused_button).grab_focus()
 	get_node("Menu").visible=true
@@ -53,7 +54,6 @@ func _on_Options_pressed():
 	get_node("Options menu").visible = true
 	current_focused_button="Options menu/Volume"
 	get_node(current_focused_button).grab_focus()
-	
 	btns = options_btns
 
 func _on_Quit_pressed():
@@ -64,15 +64,9 @@ func _on_Retour_pressed():
 	get_node("Menu").visible=true
 	current_focused_button="Menu/Start"
 	get_node(current_focused_button).grab_focus()
-	
 	btns= main_btns
 
 func change_button(direction):
-	print(direction)
-	print(current_focused_button)
-	print(btns)
-	print(btns[current_focused_button])
-	print(btns[current_focused_button][direction])
 	current_focused_button = btns[current_focused_button][direction]
 	get_node(current_focused_button).grab_focus()
 
