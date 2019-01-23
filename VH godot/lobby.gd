@@ -92,19 +92,23 @@ func _peer_disconnected(id):
 func print_message(color, pseudo, message):
 	get_node("Hosting/HBoxContainer/VSplitContainer/RichTextLabel").append_bbcode("[b][color="+color+"]"+pseudo+"[/color][/b] : "+message+"\n")
 
+func submit_receive_message(id, message):
+	if get_tree().is_network_server():
+		for peer_id in peers_connected.keys() :
+			rpc_id(peer_id, "receive_message", id, message)
+
 remote func receive_message(id, message) :
 	var pseudo = peers_connected[id]["name"]
 	var color = "#"+peers_connected[id]["color"].to_html(false)
 	print("RECEIVED " + pseudo + ":" + message)
 	print_message(color, pseudo, message)
-	if get_tree().is_network_server():
-		for peer_id in peers_connected.keys() :
-			rpc_id(peer_id, "receive_message", id, message)
-			
+	submit_receive_message(id, message)
+
 func send_message(message):
 	print("SENDING " + info["name"] + ":" + message)
 	if get_tree().is_network_server():
 		print_message("#"+info["color"].to_html(false), info["name"], message)
+		submit_receive_message(1, message)
 	else:
 		rpc_id(1, "receive_message", get_tree().get_network_unique_id(), message)
 
