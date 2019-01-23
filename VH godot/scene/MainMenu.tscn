@@ -21,7 +21,6 @@ margin_top = 225.0
 margin_right = 610.0
 margin_bottom = 275.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -46,7 +45,6 @@ margin_top = 318.0
 margin_right = 613.0
 margin_bottom = 371.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -72,7 +70,6 @@ margin_top = 393.0
 margin_right = 617.0
 margin_bottom = 446.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -101,7 +98,6 @@ margin_top = 274.0
 margin_right = 625.0
 margin_bottom = 290.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -130,7 +126,6 @@ margin_top = 318.0
 margin_right = 617.0
 margin_bottom = 372.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -178,7 +173,6 @@ _sections_unfolded = [ "Rect" ]
 
 stream = ExtResource( 2 )
 volume_db = 0.0
-pitch_scale = 1.0
 autoplay = true
 mix_target = 1
 bus = "Master"
@@ -186,15 +180,24 @@ bus = "Master"
 [node name="Timer" type="Timer" parent="." index="3"]
 
 process_mode = 1
+<<<<<<< HEAD
 wait_time = 0.1
 one_shot = true
+=======
+wait_time = 1.0
+one_shot = false
+>>>>>>> 60c1dfe5ad4ac57f54620f0afcbf35f9199bdf1e
 autostart = false
 
 [node name="TimerTimer" type="Timer" parent="Timer" index="0"]
 
 process_mode = 1
 wait_time = 0.1
+<<<<<<< HEAD
 one_shot = true
+=======
+one_shot = false
+>>>>>>> 60c1dfe5ad4ac57f54620f0afcbf35f9199bdf1e
 autostart = false
 
 [connection signal="focus_entered" from="Menu/Start" to="." method="_on_Start_focus_entered"]
