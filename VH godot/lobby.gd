@@ -95,7 +95,8 @@ func print_message(color, pseudo, message):
 func submit_receive_message(id, message):
 	if get_tree().is_network_server():
 		for peer_id in peers_connected.keys() :
-			rpc_id(peer_id, "receive_message", id, message)
+			if peer_id != 1:
+				rpc_id(peer_id, "receive_message", id, message)
 
 remote func receive_message(id, message) :
 	var pseudo = peers_connected[id]["name"]
