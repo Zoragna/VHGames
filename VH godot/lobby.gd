@@ -37,7 +37,7 @@ func hosting_add_label(info, id) :
 	get_node("Hosting/HBoxContainer/VBoxContainer").add_child( label )
 
 func hosting_remove_label(id):
-	get_node("Hosting/HBoxContainer/VBoxContainer"+str(id)).queue_free()
+	get_node("Hosting/HBoxContainer/VBoxContainer/"+str(id)).queue_free()
 
 func _init_as_host():
 	var peer = NetworkedMultiplayerENet.new()
@@ -99,7 +99,7 @@ remote func receive_message(id, message) :
 	print_message(color, pseudo, message)
 	if get_tree().is_network_server():
 		for peer_id in peers_connected.keys() :
-			rpc_id(peer_id, "receive_message", pseudo, message)
+			rpc_id(peer_id, "receive_message", id, message)
 			
 func send_message(message):
 	print("SENDING " + info["name"] + ":" + message)
