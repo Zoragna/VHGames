@@ -174,6 +174,7 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="BeforeConnection" type="MarginContainer" parent="Lobby" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -188,7 +189,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Lobby/BeforeConnection" index="0"]
+[node name="VBox" type="VBoxContainer" parent="Lobby/BeforeConnection" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -204,7 +205,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Lobby/BeforeConnection/VBoxContainer" index="0"]
+[node name="Info" type="HBoxContainer" parent="Lobby/BeforeConnection/VBox" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -219,7 +220,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="LineEdit" type="LineEdit" parent="Lobby/BeforeConnection/VBoxContainer/HBoxContainer2" index="0"]
+[node name="LineEdit" type="LineEdit" parent="Lobby/BeforeConnection/VBox/Info" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -240,7 +241,7 @@ caret_blink = false
 caret_blink_speed = 0.65
 caret_position = 0
 
-[node name="ColorPickerButton" type="ColorPickerButton" parent="Lobby/BeforeConnection/VBoxContainer/HBoxContainer2" index="1"]
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Lobby/BeforeConnection/VBox/Info" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -264,7 +265,7 @@ align = 1
 color = Color( 1, 1, 1, 1 )
 edit_alpha = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Lobby/BeforeConnection/VBoxContainer" index="1"]
+[node name="HBox" type="HBoxContainer" parent="Lobby/BeforeConnection/VBox" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -280,7 +281,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Lobby/BeforeConnection/VBoxContainer/HBoxContainer" index="0"]
+[node name="Host" type="VBoxContainer" parent="Lobby/BeforeConnection/VBox/HBox" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -295,7 +296,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="ConnectButton" type="Button" parent="Lobby/BeforeConnection/VBoxContainer/HBoxContainer/VBoxContainer" index="0"]
+[node name="ConnectButton" type="Button" parent="Lobby/BeforeConnection/VBox/HBox/Host" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -318,7 +319,7 @@ flat = false
 align = 1
 script = ExtResource( 3 )
 
-[node name="HostIPLine" type="LineEdit" parent="Lobby/BeforeConnection/VBoxContainer/HBoxContainer/VBoxContainer" index="1"]
+[node name="HostIPLine" type="LineEdit" parent="Lobby/BeforeConnection/VBox/HBox/Host" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -340,7 +341,7 @@ caret_blink = false
 caret_blink_speed = 0.65
 caret_position = 0
 
-[node name="Label" type="Label" parent="Lobby/BeforeConnection/VBoxContainer/HBoxContainer/VBoxContainer" index="2"]
+[node name="Label" type="Label" parent="Lobby/BeforeConnection/VBox/HBox/Host" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -360,7 +361,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Material", "custom_colors" ]
 
-[node name="CenterContainer" type="CenterContainer" parent="Lobby/BeforeConnection/VBoxContainer/HBoxContainer" index="1"]
+[node name="CenterContainer" type="CenterContainer" parent="Lobby/BeforeConnection/VBox/HBox" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -376,7 +377,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 use_top_left = false
 
-[node name="Retour" type="Button" parent="Lobby/BeforeConnection/VBoxContainer/HBoxContainer/CenterContainer" index="0"]
+[node name="Retour" type="Button" parent="Lobby/BeforeConnection/VBox/HBox/CenterContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -399,7 +400,7 @@ text = "Retour"
 flat = false
 align = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Lobby/BeforeConnection/VBoxContainer/HBoxContainer" index="2"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Lobby/BeforeConnection/VBox/HBox" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -415,7 +416,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="HostButton" type="Button" parent="Lobby/BeforeConnection/VBoxContainer/HBoxContainer/VBoxContainer2" index="0"]
+[node name="HostButton" type="Button" parent="Lobby/BeforeConnection/VBox/HBox/VBoxContainer2" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -437,7 +438,7 @@ text = "Host"
 flat = false
 align = 1
 
-[node name="PortEdit" type="LineEdit" parent="Lobby/BeforeConnection/VBoxContainer/HBoxContainer/VBoxContainer2" index="1"]
+[node name="PortEdit" type="LineEdit" parent="Lobby/BeforeConnection/VBox/HBox/VBoxContainer2" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -461,15 +462,14 @@ caret_position = 0
 
 [node name="Hosting" type="MarginContainer" parent="Lobby" index="1"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 185.0
-margin_top = 134.0
-margin_right = 558.0
-margin_bottom = 515.0
+margin_left = 73.0
+margin_top = 56.0
+margin_right = 924.0
+margin_bottom = 519.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -484,8 +484,8 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 8.0
-margin_right = 437.0
-margin_bottom = 445.0
+margin_right = 915.0
+margin_bottom = 527.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 1
 mouse_default_cursor_shape = 0
@@ -499,23 +499,25 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 310.0
-margin_bottom = 445.0
+margin_right = 100.0
+margin_bottom = 527.0
+rect_min_size = Vector2( 100, 200 )
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
+_sections_unfolded = [ "Grow Direction", "Rect" ]
 
-[node name="Retour" type="Button" parent="Lobby/Hosting/HBoxContainer" index="1"]
+[node name="Retour" type="Button" parent="Lobby/Hosting/HBoxContainer/VBoxContainer" index="0"]
 
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -54.0
-margin_top = -51.0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 20.0
 rect_pivot_offset = Vector2( 0, 0 )
 focus_mode = 2
 mouse_filter = 0
@@ -529,6 +531,79 @@ group = null
 text = "Retour"
 flat = false
 align = 1
+_sections_unfolded = [ "Focus" ]
+
+[node name="VSplitContainer" type="VBoxContainer" parent="Lobby/Hosting/HBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 627.0
+margin_top = -9.0
+margin_right = 827.0
+margin_bottom = 518.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 2
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin" ]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Lobby/Hosting/HBoxContainer/VSplitContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 199.0
+margin_right = 200.0
+margin_bottom = 499.0
+rect_min_size = Vector2( 200, 300 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = true
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = true
+scroll_following = false
+selection_enabled = true
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "Rect" ]
+
+[node name="TextEdit" type="LineEdit" parent="Lobby/Hosting/HBoxContainer/VSplitContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 503.0
+margin_right = 200.0
+margin_bottom = 527.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = false
+caret_blink_speed = 0.65
+caret_position = 0
 
 [node name="son" type="AudioStreamPlayer" parent="." index="3"]
 
@@ -548,20 +623,22 @@ bus = "Master"
 
 [connection signal="pressed" from="Options menu/Retour" to="." method="_on_Retour_pressed"]
 
-[connection signal="text_changed" from="Lobby/BeforeConnection/VBoxContainer/HBoxContainer2/LineEdit" to="Lobby" method="_on_LineEdit_text_changed"]
+[connection signal="text_changed" from="Lobby/BeforeConnection/VBox/Info/LineEdit" to="Lobby" method="_on_LineEdit_text_changed"]
 
-[connection signal="text_entered" from="Lobby/BeforeConnection/VBoxContainer/HBoxContainer2/LineEdit" to="Lobby" method="_on_LineEdit_text_entered"]
+[connection signal="text_entered" from="Lobby/BeforeConnection/VBox/Info/LineEdit" to="Lobby" method="_on_LineEdit_text_entered"]
 
-[connection signal="color_changed" from="Lobby/BeforeConnection/VBoxContainer/HBoxContainer2/ColorPickerButton" to="Lobby" method="_on_ColorPickerButton_color_changed"]
+[connection signal="color_changed" from="Lobby/BeforeConnection/VBox/Info/ColorPickerButton" to="Lobby" method="_on_ColorPickerButton_color_changed"]
 
-[connection signal="pressed" from="Lobby/BeforeConnection/VBoxContainer/HBoxContainer/VBoxContainer/ConnectButton" to="Lobby" method="_on_ConnectButton_pressed"]
+[connection signal="pressed" from="Lobby/BeforeConnection/VBox/HBox/Host/ConnectButton" to="Lobby" method="_on_ConnectButton_pressed"]
 
-[connection signal="pressed" from="Lobby/BeforeConnection/VBoxContainer/HBoxContainer/CenterContainer/Retour" to="." method="_on_Retour_pressed"]
+[connection signal="pressed" from="Lobby/BeforeConnection/VBox/HBox/CenterContainer/Retour" to="." method="_on_Retour_pressed"]
 
-[connection signal="pressed" from="Lobby/BeforeConnection/VBoxContainer/HBoxContainer/VBoxContainer2/HostButton" to="Lobby" method="_on_HostButton_pressed"]
+[connection signal="pressed" from="Lobby/BeforeConnection/VBox/HBox/VBoxContainer2/HostButton" to="Lobby" method="_on_HostButton_pressed"]
 
-[connection signal="text_changed" from="Lobby/BeforeConnection/VBoxContainer/HBoxContainer/VBoxContainer2/PortEdit" to="Lobby" method="_on_PortEdit_text_changed"]
+[connection signal="text_changed" from="Lobby/BeforeConnection/VBox/HBox/VBoxContainer2/PortEdit" to="Lobby" method="_on_PortEdit_text_changed"]
 
-[connection signal="pressed" from="Lobby/Hosting/HBoxContainer/Retour" to="Lobby" method="_on_Retour_pressed"]
+[connection signal="pressed" from="Lobby/Hosting/HBoxContainer/VBoxContainer/Retour" to="Lobby" method="_on_Retour_pressed"]
+
+[connection signal="text_entered" from="Lobby/Hosting/HBoxContainer/VSplitContainer/TextEdit" to="Lobby" method="_on_Messaging_text_entered"]
 
 

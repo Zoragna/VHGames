@@ -36,6 +36,9 @@ func hosting_add_label(info, id) :
 	label.set("custom_colors/font_color", info["color"])
 	get_node("Hosting/HBoxContainer/VBoxContainer").add_child( label )
 
+func hosting_remove_label(id):
+	get_node("Hosting/HBoxContainer/VBoxContainer"+str(id)).queue_free()
+
 func _init_as_host():
 	var peer = NetworkedMultiplayerENet.new()
 	var res = peer.create_server(port, MAX_PLAYERS)
@@ -51,6 +54,12 @@ func _init_as_host():
 
 	get_tree().set_network_peer(peer)
 	get_tree().set_meta("network_peer", peer)
+	
+	var me = load("res://Player.tscn").instance()
+	me.set_name("1")     # spawn players with their respective names
+	get_tree().get_root().add_child(me)
+	
+	peers_connected[1] = info
 	
 	hosting_add_label(info, 1)
 
@@ -75,38 +84,48 @@ func _peer_disconnected(id):
 	print('Peer ' + str_id + ' disconnected')
 	
 	get_tree().get_root().get_node(str_id).queue_free()
-	# here remove label
+	hosting_remove_label(id)
 	
 	peers_connected.erase(id)
 	peers_done.erase(id)
 
-remote func receive_message(pseudo, message) :
+func print_message(color, pseudo, message):
+	get_node("Hosting/HBoxContainer/VSplitContainer/RichTextLabel").append_bbcode("[b][color="+color+"]"+pseudo+"[/color][/b] : "+message+"\n")
+
+remote func receive_message(id, message) :
+	var pseudo = peers_connected[id]["name"]
+	var color = "#"+peers_connected[id]["color"].to_html(false)
 	print("RECEIVED " + pseudo + ":" + message)
+	print_message(color, pseudo, message)
 	if get_tree().is_network_server():
 		for peer_id in peers_connected.keys() :
 			rpc_id(peer_id, "receive_message", pseudo, message)
 			
 func send_message(message):
 	print("SENDING " + info["name"] + ":" + message)
-	rpc_id(1, "receive_message", info["name"], message)
+	if get_tree().is_network_server():
+		print_message("#"+info["color"].to_html(false), info["name"], message)
+	else:
+		rpc_id(1, "receive_message", get_tree().get_network_unique_id(), message)
 
 func set_stage(stage_path):
 	if get_tree().is_network_server():
 		chosen_stage = stage_path
 
 remote func register_player(id, info):
+	print("Registering from "+str(get_tree().get_network_unique_id())+" peer #"+str(id)+" whose name is "+info["name"])
 	# Store the info
 	peers_connected[id] = info
 	hosting_add_label(info, id)
 	# If I'm the server, let the new guy know about existing players
-	send_info(id, info)
+	send_info(id)
 	
 remote func update_player(id, info):
 	peers_connected[id] = info
-	get_node("Hosting/VBoxContainer/"+str(id)).text = id["name"]
-	send_info(id, info)
+	get_node("Hosting/HBoxContainer/VBoxContainer/"+str(id)).text = id["name"]
+	send_info(id)
 
-func send_info(id, info):
+func send_info(id):
 	if get_tree().is_network_server():
 		# Send my info to new player
 		rpc_id(id, "register_player", 1, info)
@@ -155,6 +174,7 @@ remote func post_configure_game():
     # Game starts now!
 
 func _connected_ok():
+	print("Connected Ok !")
 	rpc("register_player", get_tree().get_network_unique_id(), info)
 
 func _connected_failed():
@@ -183,7 +203,7 @@ func hosting():
 	get_node("Hosting").visible = true
 
 func _on_ConnectButton_pressed():
-	var ip = get_node("BeforeConnection/HBoxContainer/VBoxContainer/HostIPLine").text
+	var ip = get_node("BeforeConnection/VBox/HBox/Host/HostIPLine").text
 	print("Connecting to "+ip)
 	if ip.split(':').size() == 2 :
 		port = ip.split(':')[1]
@@ -208,3 +228,7 @@ func _on_LineEdit_text_changed( new_text ):
 func _on_PortEdit_text_changed( new_text ):
 	print("Port chosen "+new_text)
 	port = int(new_text)
+
+func _on_Messaging_text_entered( new_text ):
+	send_message(new_text)
+	get_node("Hosting/HBoxContainer/VSplitContainer/TextEdit").text = ""
