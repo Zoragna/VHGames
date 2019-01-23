@@ -108,10 +108,10 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
 min_value = 0.0
-max_value = 24.0
+max_value = 80.0
 step = 1.0
 page = 0.0
-value = 24.0
+value = 80.0
 exp_edit = false
 rounded = false
 editable = true
@@ -177,20 +177,50 @@ _sections_unfolded = [ "Rect" ]
 [node name="son" type="AudioStreamPlayer" parent="." index="2"]
 
 stream = ExtResource( 2 )
-volume_db = -80.0
+volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true
 mix_target = 1
 bus = "Master"
 
+[node name="Timer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = true
+autostart = false
+
+[node name="TimerTimer" type="Timer" parent="Timer" index="0"]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = true
+autostart = false
+
+[connection signal="focus_entered" from="Menu/Start" to="." method="_on_Start_focus_entered"]
+
+[connection signal="focus_exited" from="Menu/Start" to="." method="_on_Start_focus_exited"]
+
 [connection signal="pressed" from="Menu/Start" to="." method="_on_Start_pressed"]
 
+[connection signal="focus_entered" from="Menu/Options" to="." method="_on_Options_focus_entered"]
+
+[connection signal="focus_exited" from="Menu/Options" to="." method="_on_Options_focus_exited"]
+
 [connection signal="pressed" from="Menu/Options" to="." method="_on_Options_pressed"]
+
+[connection signal="focus_entered" from="Menu/Quit" to="." method="_on_Quit_focus_entered"]
+
+[connection signal="focus_exited" from="Menu/Quit" to="." method="_on_Quit_focus_exited"]
 
 [connection signal="pressed" from="Menu/Quit" to="." method="_on_Quit_pressed"]
 
 [connection signal="value_changed" from="Options menu/Volume" to="." method="_on_Volume_value_changed"]
 
 [connection signal="pressed" from="Options menu/Retour" to="." method="_on_Retour_pressed"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[connection signal="timeout" from="Timer/TimerTimer" to="." method="_on_TimerTimer_timeout"]
 
 
