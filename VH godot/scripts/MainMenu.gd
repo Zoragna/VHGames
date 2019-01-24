@@ -117,32 +117,6 @@ func _input(event):
 				elif event.axis == JOY_AXIS_1 && event.axis_value < -0.3 :
 					change_button("up")
 					get_node("Timer").start()
-
-func _on_Quit_focus_entered():
-	pass # replace with function body
-
-	btns= main_btns
-
-func change_button(direction):
-	current_focused_button = btns[current_focused_button][direction]
-	get_node(current_focused_button).grab_focus()
-
-func _input(event):
-	#get_node(current_focused_button).grab_focus()
-	if current_panel == "Menu" :
-		if event is InputEventKey : #&& !event.is_echo() :
-			if event.is_action_pressed("ui_down"):
-				change_button("down")
-			elif event.is_action_pressed("ui_up"):
-				change_button("up")
-		elif event is InputEventJoypadMotion :
-			if get_node("Timer").is_stopped() :
-				if get_node("Timer/TimerTimer").is_stopped() :
-					if event.axis == JOY_AXIS_0 && event.axis_value > 0.3 :
-						change_button("down")
-					elif event.axis == JOY_AXIS_0 && event.axis_value < 0.3 :
-						change_button("up")
-					get_node("Timer").start()
 	elif current_panel == "Options" :
 		if event is InputEventKey :
 			if current_focused_button == "Options menu/Volume" :
@@ -155,20 +129,16 @@ func _input(event):
 			elif event.is_action_pressed("ui_up"):
 				change_button("up")
 
-
 func _on_Quit_focus_entered():
 	pass # replace with function body
 
+	btns= main_btns
 
 func _on_Quit_focus_exited():
 	pass # replace with function body
 
 
 func _on_Options_focus_exited():
-	pass # replace with function body
-
-
-func _on_Options_focus_entered():
 	pass # replace with function body
 
 
@@ -179,15 +149,6 @@ func _on_Start_focus_entered():
 func _on_Start_focus_exited():
 	pass # replace with function body
 
-
-
-func _on_Options_pressed():
-	get_node("Menu").visible = false
-	get_node("Options menu").visible = true
-
-
-func _on_Quit_pressed():
-	get_tree().quit()
 
 func _on_Timer_timeout():
 	get_node("Timer/TimerTimer").start()
