@@ -1,0 +1,229 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Imagine Dragons - Natural.wav" type="AudioStream" id=2]
+
+[node name="MainMenu" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Menu" type="Node2D" parent="." index="0"]
+
+[node name="Start" type="Button" parent="Menu" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 466.0
+margin_top = 225.0
+margin_right = 610.0
+margin_bottom = 275.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Start"
+flat = false
+align = 1
+
+[node name="Options" type="Button" parent="Menu" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 463.0
+margin_top = 318.0
+margin_right = 613.0
+margin_bottom = 371.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "options"
+flat = false
+align = 1
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="Quit" type="Button" parent="Menu" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 463.0
+margin_top = 393.0
+margin_right = 617.0
+margin_bottom = 446.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Quit"
+flat = false
+align = 1
+
+[node name="Options menu" type="Node2D" parent="." index="1"]
+
+visible = false
+
+[node name="Volume" type="HSlider" parent="Options menu" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 455.0
+margin_top = 274.0
+margin_right = 625.0
+margin_bottom = 290.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+min_value = 0.0
+max_value = 80.0
+step = 1.0
+page = 0.0
+value = 80.0
+exp_edit = false
+rounded = false
+editable = true
+tick_count = 0
+ticks_on_borders = false
+focus_mode = 2
+
+[node name="Retour" type="Button" parent="Options menu" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 460.0
+margin_top = 318.0
+margin_right = 617.0
+margin_bottom = 372.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Retour"
+flat = false
+align = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Options menu" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 491.0
+margin_top = 227.0
+margin_right = 541.0
+margin_bottom = 243.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 0
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 5
+text = "Volume"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "Rect" ]
+
+[node name="son" type="AudioStreamPlayer" parent="." index="2"]
+
+stream = ExtResource( 2 )
+volume_db = 0.0
+autoplay = true
+mix_target = 1
+bus = "Master"
+
+[node name="Timer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+<<<<<<< HEAD
+wait_time = 0.1
+one_shot = true
+=======
+wait_time = 1.0
+one_shot = false
+>>>>>>> 60c1dfe5ad4ac57f54620f0afcbf35f9199bdf1e
+autostart = false
+
+[node name="TimerTimer" type="Timer" parent="Timer" index="0"]
+
+process_mode = 1
+wait_time = 0.1
+<<<<<<< HEAD
+one_shot = true
+=======
+one_shot = false
+>>>>>>> 60c1dfe5ad4ac57f54620f0afcbf35f9199bdf1e
+autostart = false
+
+[connection signal="focus_entered" from="Menu/Start" to="." method="_on_Start_focus_entered"]
+
+[connection signal="focus_exited" from="Menu/Start" to="." method="_on_Start_focus_exited"]
+
+[connection signal="pressed" from="Menu/Start" to="." method="_on_Start_pressed"]
+
+[connection signal="focus_entered" from="Menu/Options" to="." method="_on_Options_focus_entered"]
+
+[connection signal="focus_exited" from="Menu/Options" to="." method="_on_Options_focus_exited"]
+
+[connection signal="pressed" from="Menu/Options" to="." method="_on_Options_pressed"]
+
+[connection signal="focus_entered" from="Menu/Quit" to="." method="_on_Quit_focus_entered"]
+
+[connection signal="focus_exited" from="Menu/Quit" to="." method="_on_Quit_focus_exited"]
+
+[connection signal="pressed" from="Menu/Quit" to="." method="_on_Quit_pressed"]
+
+[connection signal="value_changed" from="Options menu/Volume" to="." method="_on_Volume_value_changed"]
+
+[connection signal="pressed" from="Options menu/Retour" to="." method="_on_Retour_pressed"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[connection signal="timeout" from="Timer/TimerTimer" to="." method="_on_TimerTimer_timeout"]
+
+
