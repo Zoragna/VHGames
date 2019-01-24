@@ -6,10 +6,8 @@ extends Node2D
 
 var btns
 var current_focused_button
-<<<<<<< HEAD
-=======
+
 var current_panel
->>>>>>> 60c1dfe5ad4ac57f54620f0afcbf35f9199bdf1e
 
 const main_btns = {
 	"Menu/Start":{
@@ -41,24 +39,21 @@ func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	btns = main_btns
-<<<<<<< HEAD
-=======
+
 	current_panel = "Menu"
->>>>>>> 60c1dfe5ad4ac57f54620f0afcbf35f9199bdf1e
+
 	current_focused_button="Menu/Start"
 	get_node(current_focused_button).grab_focus()
 	get_node("Menu").visible=true
 	get_node("Options menu").visible=false
+	get_node("Lobby").visible = false
+
+
 
 func _on_Volume_value_changed(value):
-<<<<<<< HEAD
-	get_node("son").volume_db= value-80
-=======
-	get_node("son").volume_db= value-24
->>>>>>> 60c1dfe5ad4ac57f54620f0afcbf35f9199bdf1e
 
-func _on_Start_pressed():
-	get_tree().change_scene("res://scene/map.tscn")
+	get_node("son").volume_db= value-80
+
 
 func _on_Options_pressed():
 	get_node("Menu").visible = false
@@ -68,11 +63,20 @@ func _on_Options_pressed():
 	
 	current_focused_button="Options menu/Volume"
 	get_node(current_focused_button).grab_focus()
-<<<<<<< HEAD
-	
-=======
->>>>>>> 60c1dfe5ad4ac57f54620f0afcbf35f9199bdf1e
+
 	btns = options_btns
+
+
+func _on_Retour_pressed():
+	get_node("Options menu").visible=false
+	get_node("Lobby").visible = false
+	get_node("Menu").visible=true
+
+
+func _on_Start_pressed():
+	get_node("Menu").visible = false
+	get_node("Options menu").visible = false
+	get_node("Lobby").visible = true
 
 func _on_Quit_pressed():
 	get_tree().quit()
@@ -85,8 +89,7 @@ func _on_Retour_pressed():
 	
 	current_focused_button="Menu/Start"
 	get_node(current_focused_button).grab_focus()
-<<<<<<< HEAD
-	
+
 	btns= main_btns
 
 func change_button(direction):
@@ -117,7 +120,7 @@ func _input(event):
 
 func _on_Quit_focus_entered():
 	pass # replace with function body
-=======
+
 	btns= main_btns
 
 func change_button(direction):
@@ -151,7 +154,7 @@ func _input(event):
 				change_button("down")
 			elif event.is_action_pressed("ui_up"):
 				change_button("up")
->>>>>>> 60c1dfe5ad4ac57f54620f0afcbf35f9199bdf1e
+
 
 func _on_Quit_focus_entered():
 	pass # replace with function body
@@ -176,28 +179,15 @@ func _on_Start_focus_entered():
 func _on_Start_focus_exited():
 	pass # replace with function body
 
-<<<<<<< HEAD
-func _on_Quit_focus_exited():
-	pass # replace with function body
 
 
-func _on_Options_focus_exited():
-	pass # replace with function body
+func _on_Options_pressed():
+	get_node("Menu").visible = false
+	get_node("Options menu").visible = true
 
 
-func _on_Options_focus_entered():
-	pass # replace with function body
-
-
-func _on_Start_focus_entered():
-	pass # replace with function body
-
-
-func _on_Start_focus_exited():
-	pass # replace with function body
-
-=======
->>>>>>> 60c1dfe5ad4ac57f54620f0afcbf35f9199bdf1e
+func _on_Quit_pressed():
+	get_tree().quit()
 
 func _on_Timer_timeout():
 	get_node("Timer/TimerTimer").start()
@@ -205,3 +195,4 @@ func _on_Timer_timeout():
 
 func _on_TimerTimer_timeout():
 	pass # replace with function body
+
