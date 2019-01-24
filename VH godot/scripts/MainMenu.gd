@@ -67,12 +67,6 @@ func _on_Options_pressed():
 	btns = options_btns
 
 
-func _on_Retour_pressed():
-	get_node("Options menu").visible=false
-	get_node("Lobby").visible = false
-	get_node("Menu").visible=true
-
-
 func _on_Start_pressed():
 	get_node("Menu").visible = false
 	get_node("Options menu").visible = false
@@ -84,6 +78,7 @@ func _on_Quit_pressed():
 func _on_Retour_pressed():
 	get_node("Options menu").visible=false
 	get_node("Menu").visible=true
+	get_node("Lobby").visible = false
 	
 	current_panel = "Menu"
 	
