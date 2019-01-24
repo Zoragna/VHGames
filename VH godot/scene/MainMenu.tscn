@@ -6,7 +6,7 @@
 [ext_resource path="res://scene/Button.gd" type="Script" id=3]
 [ext_resource path="res://scene/Hosting.gd" type="Script" id=4]
 
-[ext_resource path="res://Imagine Dragons - Natural.wav" type="AudioStream" id=2]
+[ext_resource path="res://Imagine Dragons - Natural.wav" type="AudioStream" id=5]
 
 
 [node name="MainMenu" type="Node2D" index="0"]
