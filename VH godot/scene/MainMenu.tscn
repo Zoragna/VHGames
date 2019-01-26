@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/MainMenu.gd" type="Script" id=1]
@@ -5,6 +6,7 @@
 [ext_resource path="res://scene/Button.gd" type="Script" id=3]
 [ext_resource path="res://scene/Hosting.gd" type="Script" id=4]
 
+[ext_resource path="res://Imagine Dragons - Natural.wav" type="AudioStream" id=2]
 
 [node name="MainMenu" type="Node2D" index="0"]
 
@@ -36,7 +38,6 @@ group = null
 text = "Start"
 flat = false
 align = 1
-_sections_unfolded = [ "Visibility" ]
 
 [node name="Options" type="Button" parent="Menu" index="1"]
 
@@ -106,10 +107,10 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
 min_value = 0.0
-max_value = 100.0
+max_value = 80.0
 step = 1.0
 page = 0.0
-value = 0.0
+value = 80.0
 exp_edit = false
 rounded = false
 editable = true
@@ -175,11 +176,12 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="son" type="AudioStreamPlayer" parent="." index="3"]
 
-stream = null
+stream = ExtResource( 2 )
 volume_db = 0.0
 autoplay = true
 mix_target = 1
 bus = "Master"
+
 
 [connection signal="pressed" from="Menu/Start" to="." method="_on_Start_pressed"]
 
@@ -187,8 +189,67 @@ bus = "Master"
 
 [connection signal="pressed" from="Menu/Quit" to="." method="_on_Quit_pressed"]
 
-[connection signal="changed" from="Options menu/Volume" to="." method="_on_Volume_changed"]
+[node name="Timer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+
+wait_time = 0.1
+one_shot = true
+
+autostart = false
+
+[node name="TimerTimer" type="Timer" parent="Timer" index="0"]
+
+process_mode = 1
+wait_time = 0.1
+
+one_shot = true
+autostart = false
+
+[connection signal="focus_entered" from="Menu/Start" to="." method="_on_Start_focus_entered"]
+
+[connection signal="focus_exited" from="Menu/Start" to="." method="_on_Start_focus_exited"]
+
+[connection signal="pressed" from="Menu/Start" to="." method="_on_Start_pressed"]
+
+[connection signal="focus_entered" from="Menu/Options" to="." method="_on_Options_focus_entered"]
+
+[connection signal="focus_exited" from="Menu/Options" to="." method="_on_Options_focus_exited"]
+
+[connection signal="pressed" from="Menu/Options" to="." method="_on_Options_pressed"]
+
+[connection signal="focus_entered" from="Menu/Quit" to="." method="_on_Quit_focus_entered"]
+
+[connection signal="focus_exited" from="Menu/Quit" to="." method="_on_Quit_focus_exited"]
+
+[connection signal="pressed" from="Menu/Quit" to="." method="_on_Quit_pressed"]
+
+[connection signal="value_changed" from="Options menu/Volume" to="." method="_on_Volume_value_changed"]
 
 [connection signal="pressed" from="Options menu/Retour" to="." method="_on_Retour_pressed"]
 
 
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+
+[connection signal="pressed" from="Options menu/Retour" to="." method="_on_Retour_pressed"]
+
+[connection signal="text_changed" from="Lobby/BeforeConnection/VBox/Info/LineEdit" to="Lobby" method="_on_LineEdit_text_changed"]
+
+[connection signal="text_entered" from="Lobby/BeforeConnection/VBox/Info/LineEdit" to="Lobby" method="_on_LineEdit_text_entered"]
+
+[connection signal="color_changed" from="Lobby/BeforeConnection/VBox/Info/ColorPickerButton" to="Lobby" method="_on_ColorPickerButton_color_changed"]
+
+[connection signal="pressed" from="Lobby/BeforeConnection/VBox/HBox/Host/ConnectButton" to="Lobby" method="_on_ConnectButton_pressed"]
+
+[connection signal="pressed" from="Lobby/BeforeConnection/VBox/HBox/CenterContainer/Retour" to="." method="_on_Retour_pressed"]
+
+[connection signal="pressed" from="Lobby/BeforeConnection/VBox/HBox/VBoxContainer2/HostButton" to="Lobby" method="_on_HostButton_pressed"]
+
+[connection signal="text_changed" from="Lobby/BeforeConnection/VBox/HBox/VBoxContainer2/PortEdit" to="Lobby" method="_on_PortEdit_text_changed"]
+
+[connection signal="pressed" from="Lobby/Hosting/HBoxContainer/VBoxContainer/Retour" to="Lobby" method="_on_Retour_pressed"]
+
+[connection signal="text_entered" from="Lobby/Hosting/HBoxContainer/VSplitContainer/TextEdit" to="Lobby" method="_on_Messaging_text_entered"]
+
+[connection signal="timeout" from="Timer/TimerTimer" to="." method="_on_TimerTimer_timeout"]
