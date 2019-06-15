@@ -1,0 +1,754 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/lobby.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Button.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Hosting.gd" type="Script" id=4]
+
+[node name="MainMenu" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Menu" type="Node2D" parent="." index="0"]
+
+[node name="Smash" type="Button" parent="Menu" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 466.0
+margin_top = 152.0
+margin_right = 610.0
+margin_bottom = 202.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Smash"
+flat = false
+align = 1
+
+[node name="Start" type="Button" parent="Menu" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 466.0
+margin_top = 225.0
+margin_right = 610.0
+margin_bottom = 275.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Start"
+flat = false
+align = 1
+
+[node name="Options" type="Button" parent="Menu" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 463.0
+margin_top = 318.0
+margin_right = 613.0
+margin_bottom = 371.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "options"
+flat = false
+align = 1
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="Quit" type="Button" parent="Menu" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 463.0
+margin_top = 393.0
+margin_right = 617.0
+margin_bottom = 446.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Quit"
+flat = false
+align = 1
+
+[node name="Options menu" type="Node2D" parent="." index="1"]
+
+[node name="Volume" type="HSlider" parent="Options menu" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 455.0
+margin_top = 274.0
+margin_right = 625.0
+margin_bottom = 290.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+min_value = 0.0
+max_value = 80.0
+step = 1.0
+page = 0.0
+value = 80.0
+exp_edit = false
+rounded = false
+editable = true
+tick_count = 0
+ticks_on_borders = false
+focus_mode = 2
+
+[node name="Commandes" type="Button" parent="Options menu" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 460.0
+margin_top = 318.0
+margin_right = 617.0
+margin_bottom = 372.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Commandes"
+flat = false
+align = 1
+
+[node name="Retour" type="Button" parent="Options menu" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 460.0
+margin_top = 401.0
+margin_right = 617.0
+margin_bottom = 455.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Retour"
+flat = false
+align = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Options menu" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 491.0
+margin_top = 227.0
+margin_right = 541.0
+margin_bottom = 243.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 0
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 5
+text = "Volume"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "Rect" ]
+
+[node name="Lobby" parent="." index="2" instance=ExtResource( 2 )]
+
+[node name="BeforeConnection" type="MarginContainer" parent="Lobby" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 427.0
+margin_top = 123.0
+margin_right = 794.0
+margin_bottom = 529.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="VBox" type="VBoxContainer" parent="Lobby/BeforeConnection" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_right = 367.0
+margin_bottom = 406.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Info" type="HBoxContainer" parent="Lobby/BeforeConnection/VBox" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 359.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="LineEdit" type="LineEdit" parent="Lobby/BeforeConnection/VBox/Info" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 58.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = false
+caret_blink_speed = 0.65
+caret_position = 0
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Lobby/BeforeConnection/VBox/Info" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 62.0
+margin_right = 74.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+color = Color( 1, 1, 1, 1 )
+edit_alpha = true
+
+[node name="HBox" type="HBoxContainer" parent="Lobby/BeforeConnection/VBox" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 28.0
+margin_right = 359.0
+margin_bottom = 94.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Host" type="VBoxContainer" parent="Lobby/BeforeConnection/VBox/HBox" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 103.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="ConnectButton" type="Button" parent="Lobby/BeforeConnection/VBox/HBox/Host" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 103.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Try to connect"
+flat = false
+align = 1
+script = ExtResource( 3 )
+
+[node name="HostIPLine" type="LineEdit" parent="Lobby/BeforeConnection/VBox/HBox/Host" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 24.0
+margin_right = 103.0
+margin_bottom = 48.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = false
+caret_blink_speed = 0.65
+caret_position = 0
+
+[node name="Label" type="Label" parent="Lobby/BeforeConnection/VBox/HBox/Host" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 52.0
+margin_right = 103.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Host IP adress"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Material", "custom_colors" ]
+
+[node name="CenterContainer" type="CenterContainer" parent="Lobby/BeforeConnection/VBox/HBox" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 107.0
+margin_right = 161.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+
+[node name="Retour" type="Button" parent="Lobby/BeforeConnection/VBox/HBox/CenterContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 23.0
+margin_right = 54.0
+margin_bottom = 43.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Retour"
+flat = false
+align = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Lobby/BeforeConnection/VBox/HBox" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 165.0
+margin_right = 223.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="HostButton" type="Button" parent="Lobby/BeforeConnection/VBox/HBox/VBoxContainer2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 58.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Host"
+flat = false
+align = 1
+
+[node name="PortEdit" type="LineEdit" parent="Lobby/BeforeConnection/VBox/HBox/VBoxContainer2" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 24.0
+margin_right = 58.0
+margin_bottom = 48.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = false
+caret_blink_speed = 0.65
+caret_position = 0
+
+[node name="Hosting" type="MarginContainer" parent="Lobby" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 73.0
+margin_top = 56.0
+margin_right = 924.0
+margin_bottom = 519.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 4 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Lobby/Hosting" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_right = 915.0
+margin_bottom = 527.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Lobby/Hosting/HBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 527.0
+rect_min_size = Vector2( 100, 200 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Grow Direction", "Rect" ]
+
+[node name="Retour" type="Button" parent="Lobby/Hosting/HBoxContainer/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Retour"
+flat = false
+align = 1
+_sections_unfolded = [ "Focus" ]
+
+[node name="VSplitContainer" type="VBoxContainer" parent="Lobby/Hosting/HBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 104.0
+margin_right = 304.0
+margin_bottom = 527.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 2
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin" ]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Lobby/Hosting/HBoxContainer/VSplitContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 199.0
+margin_right = 200.0
+margin_bottom = 499.0
+rect_min_size = Vector2( 200, 300 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = true
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = true
+scroll_following = false
+selection_enabled = true
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "Rect" ]
+
+[node name="TextEdit" type="LineEdit" parent="Lobby/Hosting/HBoxContainer/VSplitContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 503.0
+margin_right = 200.0
+margin_bottom = 527.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = false
+caret_blink_speed = 0.65
+caret_position = 0
+
+[node name="Timer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = true
+autostart = false
+
+[node name="TimerTimer" type="Timer" parent="Timer" index="0"]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = true
+autostart = false
+
+[node name="son" type="AudioStreamPlayer" parent="." index="4"]
+
+stream = null
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 1
+bus = "Master"
+
+[connection signal="pressed" from="Menu/Smash" to="." method="_on_Smash_pressed"]
+
+[connection signal="focus_entered" from="Menu/Start" to="." method="_on_Start_focus_entered"]
+
+[connection signal="focus_exited" from="Menu/Start" to="." method="_on_Start_focus_exited"]
+
+[connection signal="pressed" from="Menu/Start" to="." method="_on_Start_pressed"]
+
+[connection signal="focus_entered" from="Menu/Options" to="." method="_on_Options_focus_entered"]
+
+[connection signal="focus_exited" from="Menu/Options" to="." method="_on_Options_focus_exited"]
+
+[connection signal="pressed" from="Menu/Options" to="." method="_on_Options_pressed"]
+
+[connection signal="focus_entered" from="Menu/Quit" to="." method="_on_Quit_focus_entered"]
+
+[connection signal="focus_exited" from="Menu/Quit" to="." method="_on_Quit_focus_exited"]
+
+[connection signal="pressed" from="Menu/Quit" to="." method="_on_Quit_pressed"]
+
+[connection signal="value_changed" from="Options menu/Volume" to="." method="_on_Volume_value_changed"]
+
+[connection signal="pressed" from="Options menu/Commandes" to="." method="_on_Commandes_pressed"]
+
+[connection signal="pressed" from="Options menu/Retour" to="." method="_on_Retour_pressed"]
+
+[connection signal="text_changed" from="Lobby/BeforeConnection/VBox/Info/LineEdit" to="Lobby" method="_on_LineEdit_text_changed"]
+
+[connection signal="text_entered" from="Lobby/BeforeConnection/VBox/Info/LineEdit" to="Lobby" method="_on_LineEdit_text_entered"]
+
+[connection signal="color_changed" from="Lobby/BeforeConnection/VBox/Info/ColorPickerButton" to="Lobby" method="_on_ColorPickerButton_color_changed"]
+
+[connection signal="pressed" from="Lobby/BeforeConnection/VBox/HBox/Host/ConnectButton" to="Lobby" method="_on_ConnectButton_pressed"]
+
+[connection signal="pressed" from="Lobby/BeforeConnection/VBox/HBox/CenterContainer/Retour" to="." method="_on_Retour_pressed"]
+
+[connection signal="pressed" from="Lobby/BeforeConnection/VBox/HBox/VBoxContainer2/HostButton" to="Lobby" method="_on_HostButton_pressed"]
+
+[connection signal="text_changed" from="Lobby/BeforeConnection/VBox/HBox/VBoxContainer2/PortEdit" to="Lobby" method="_on_PortEdit_text_changed"]
+
+[connection signal="pressed" from="Lobby/Hosting/HBoxContainer/VBoxContainer/Retour" to="Lobby" method="_on_Retour_pressed"]
+
+[connection signal="text_entered" from="Lobby/Hosting/HBoxContainer/VSplitContainer/TextEdit" to="Lobby" method="_on_Messaging_text_entered"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[connection signal="timeout" from="Timer/TimerTimer" to="." method="_on_TimerTimer_timeout"]
+
+

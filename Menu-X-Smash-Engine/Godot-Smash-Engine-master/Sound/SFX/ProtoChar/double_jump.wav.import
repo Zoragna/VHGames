@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/double_jump.wav-39a2572f6773a9989886481dd70d98ea.sample"
+
+[deps]
+
+source_file="res://Sound/SFX/ProtoChar/double_jump.wav"
+dest_files=[ "res://.import/double_jump.wav-39a2572f6773a9989886481dd70d98ea.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=true
+force/max_rate_hz=44100.0
+edit/trim=false
+edit/normalize=true
+edit/loop=false
+compress/mode=1
