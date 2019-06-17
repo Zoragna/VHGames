@@ -29,13 +29,17 @@ const main_btns = {
 }
 	
 const options_btns = {
-	"Options menu/Volume":{
-		"down":"Options menu/Commandes",
+	"Options menu/Volume Musique":{
+		"down":"Options menu/Volume Effets",
 		"up":"Options menu/Retour"
+	},
+	"Options menu/Volume Effets":{
+		"down":"Options menu/Commandes",
+		"up":"Options menu/Volume Musique"
 	},
 	"Options menu/Commandes":{
 		"down":"Options menu/Retour",
-		"up":"Options menu/Volume"
+		"up":"Options menu/Volume Effets"
 	},
 	"Options menu/Retour":{
 		"down":"Options menu/Volume",
@@ -55,12 +59,16 @@ func _ready():
 	get_node("Menu").visible=true
 	get_node("Options menu").visible=false
 	get_node("Lobby").visible = false
+	get_node("/root/Audio_Manager").playmusic('Music/Menu','music',0.8)
 
 
 
 func _on_Volume_value_changed(value):
-
-	get_node("son").volume_db= value-80
+	get_node("/root/Audio_Manager").set_song_volume(value)
+	#get_node("son").volume_db= (value-79)/100
+	
+func _on_Volume_Effets_value_changed(value):
+	get_node("/root/Audio_Manager").set_sfx_volume(value)
 
 
 func _on_Options_pressed():
@@ -69,7 +77,7 @@ func _on_Options_pressed():
 	
 	current_panel = "Options"
 	
-	current_focused_button="Options menu/Volume"
+	current_focused_button="Options menu/Volume Musique"
 	get_node(current_focused_button).grab_focus()
 
 	btns = options_btns
@@ -90,7 +98,7 @@ func _on_Retour_pressed():
 	
 	current_panel = "Menu"
 	
-	current_focused_button="Menu/Start"
+	current_focused_button="Menu/Smash"
 	get_node(current_focused_button).grab_focus()
 
 	btns= main_btns
@@ -169,3 +177,4 @@ func _on_Commandes_pressed():
 func _on_Smash_pressed():
 	get_tree().change_scene("res://Scenes/Instancing_Test.tscn")
 	pass # replace with function body
+

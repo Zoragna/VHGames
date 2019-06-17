@@ -5,7 +5,7 @@ extends Node
 # var b = "textvar"
 
 func _ready():
-	get_node("/root/Audio_Manager").playmusic('Music/Menu','music',0.8)
+	#get_node("/root/Audio_Manager").playmusic('Music/Menu','music',0.8)
 	# Called every time the node is added to the scene.
 	# Initialization here
 	set_process(true)
