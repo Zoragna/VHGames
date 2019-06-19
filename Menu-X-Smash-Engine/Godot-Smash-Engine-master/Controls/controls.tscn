@@ -6,7 +6,7 @@
 [ext_resource path="res://Sprites/Debug Sprites/Wall.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Logo.png" type="Texture" id=5]
 
-[node name="controls_ui" type="Node2D"]
+[node name="controls_ui" type="Node2D" index="0"]
 
 [node name="contextual_help2" type="Label" parent="." index="0"]
 
@@ -88,7 +88,6 @@ size_flags_vertical = 2
 
 [node name="ui_up" type="Control" parent="Node/bindings" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -103,9 +102,6 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
 size_flags_vertical = 2
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Label" type="Label" parent="Node/bindings/ui_up" index="0"]
 
@@ -154,7 +150,6 @@ align = 1
 
 [node name="ui_down" type="Control" parent="Node/bindings" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -169,9 +164,6 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
 size_flags_vertical = 2
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Label" type="Label" parent="Node/bindings/ui_down" index="0"]
 
@@ -220,7 +212,6 @@ align = 1
 
 [node name="ui_left" type="Control" parent="Node/bindings" index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -235,9 +226,6 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
 size_flags_vertical = 2
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Label" type="Label" parent="Node/bindings/ui_left" index="0"]
 
@@ -286,7 +274,6 @@ align = 1
 
 [node name="ui_right" type="Control" parent="Node/bindings" index="3"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -301,9 +288,6 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
 size_flags_vertical = 2
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Label" type="Label" parent="Node/bindings/ui_right" index="0"]
 
@@ -357,9 +341,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 249.0
+margin_left = 216.0
 margin_top = -18.0
-margin_right = 289.0
+margin_right = 256.0
 margin_bottom = 22.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -423,9 +407,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 249.0
+margin_left = 216.0
 margin_top = 32.0
-margin_right = 289.0
+margin_right = 256.0
 margin_bottom = 72.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -489,9 +473,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 249.0
+margin_left = 216.0
 margin_top = 82.0
-margin_right = 289.0
+margin_right = 256.0
 margin_bottom = 122.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -555,9 +539,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 249.0
+margin_left = 216.0
 margin_top = 132.0
-margin_right = 289.0
+margin_right = 256.0
 margin_bottom = 172.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -616,7 +600,6 @@ align = 1
 
 [node name="jump" type="Control" parent="Node/bindings" index="8"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -631,9 +614,6 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
 size_flags_vertical = 2
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Label" type="Label" parent="Node/bindings/jump" index="0"]
 
@@ -682,7 +662,6 @@ align = 1
 
 [node name="shield" type="Control" parent="Node/bindings" index="9"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -697,9 +676,6 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
 size_flags_vertical = 2
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Label" type="Label" parent="Node/bindings/shield" index="0"]
 
@@ -748,7 +724,6 @@ align = 1
 
 [node name="attack" type="Control" parent="Node/bindings" index="10"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -763,9 +738,6 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
 size_flags_vertical = 2
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Label" type="Label" parent="Node/bindings/attack" index="0"]
 
@@ -814,7 +786,6 @@ align = 1
 
 [node name="special" type="Control" parent="Node/bindings" index="11"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -829,9 +800,6 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
 size_flags_vertical = 2
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Label" type="Label" parent="Node/bindings/special" index="0"]
 
@@ -880,7 +848,6 @@ align = 1
 
 [node name="grab" type="Control" parent="Node/bindings" index="12"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -895,9 +862,6 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
 size_flags_vertical = 2
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Label" type="Label" parent="Node/bindings/grab" index="0"]
 
@@ -944,16 +908,16 @@ group = null
 flat = false
 align = 1
 
-[node name="Retour" type="Button" parent="Node/bindings" index="13"]
+[node name="Retour_b" type="Button" parent="Node/bindings" index="13"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 266.0
-margin_top = 209.0
-margin_right = 337.0
-margin_bottom = 243.0
+margin_left = 267.0
+margin_top = 210.0
+margin_right = 338.0
+margin_bottom = 244.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -1029,6 +993,6 @@ position = Vector2( 870, 410 )
 scale = Vector2( 0.266, 0.266 )
 texture = ExtResource( 5 )
 
-[connection signal="pressed" from="Node/bindings/Retour" to="Node" method="_on_Retour_pressed"]
+[connection signal="pressed" from="Node/bindings/Retour_b" to="Node" method="_on_Retour_pressed"]
 
 

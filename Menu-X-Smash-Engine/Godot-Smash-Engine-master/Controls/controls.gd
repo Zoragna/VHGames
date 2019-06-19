@@ -18,6 +18,7 @@ const CONFIG_FILE = "res://input.cfg"
 # Member variables
 var action # To register the action the UI is currently handling
 var button # Button node corresponding to the above action
+var button2
 var deadzone = 0.3
 var deadzone_flag = false
 # Load/save input mapping to a config file
@@ -61,6 +62,7 @@ func wait_for_input(action_bind):
 	action = action_bind
 	# See note at the beginning of the script
 	button = get_node("bindings").get_node(action).get_node("Button")
+	button2 = get_node("bindings").get_node(action).get_node("Button2")
 	get_node("contextual_help").text = "Press a key to assign to the '" + action + "' action."
 	set_process_input(true)
 
@@ -90,6 +92,7 @@ func _input(event):
 			if event is InputEventKey:
 				update_device(event)
 				button.text = OS.get_scancode_string(event.scancode)
+				button2.text = OS.get_scancode_string(event.scancode)
 			if event is InputEventJoypadButton:
 				update_device(event)
 				
@@ -140,6 +143,3 @@ func _ready():
 	# Do not start processing input until a button is pressed
 	set_process_input(false)
 
-
-func _on_Retour_pressed():
-	get_tree().change_scene("res://Scenes/MainMenu.tscn")

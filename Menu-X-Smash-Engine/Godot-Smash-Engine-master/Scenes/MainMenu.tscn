@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/lobby.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Button.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Hosting.gd" type="Script" id=4]
+[ext_resource path="res://Controls/controls.tscn" type="PackedScene" id=5]
 
 [node name="MainMenu" type="Node2D" index="0"]
 
@@ -11,6 +12,8 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="Menu" type="Node2D" parent="." index="0"]
+
+editor/display_folded = true
 
 [node name="Smash" type="Button" parent="Menu" index="0"]
 
@@ -285,6 +288,8 @@ flat = false
 align = 1
 
 [node name="Lobby" parent="." index="2" instance=ExtResource( 2 )]
+
+editor/display_folded = true
 
 [node name="BeforeConnection" type="MarginContainer" parent="Lobby" index="0"]
 
@@ -739,7 +744,13 @@ caret_blink = false
 caret_blink_speed = 0.65
 caret_position = 0
 
-[node name="Timer" type="Timer" parent="." index="3"]
+[node name="controls_ui" parent="." index="3" instance=ExtResource( 5 )]
+
+[node name="ParallaxBackground" parent="controls_ui" index="2"]
+
+editor/display_folded = true
+
+[node name="Timer" type="Timer" parent="." index="4"]
 
 process_mode = 1
 wait_time = 0.1
@@ -799,8 +810,11 @@ autostart = false
 
 [connection signal="text_entered" from="Lobby/Hosting/HBoxContainer/VSplitContainer/TextEdit" to="Lobby" method="_on_Messaging_text_entered"]
 
+[connection signal="pressed" from="controls_ui/Node/bindings/Retour_b" to="." method="_on_Retour_b_pressed"]
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 [connection signal="timeout" from="Timer/TimerTimer" to="." method="_on_TimerTimer_timeout"]
 
 
+[editable path="controls_ui"]

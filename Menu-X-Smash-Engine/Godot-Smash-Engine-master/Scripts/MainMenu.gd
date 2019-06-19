@@ -42,8 +42,95 @@ const options_btns = {
 		"up":"Options menu/Volume Effets"
 	},
 	"Options menu/Retour":{
-		"down":"Options menu/Volume",
+		"down":"Options menu/Volume Musique",
 		"up":"Options menu/Commandes"
+	}
+}
+
+const controls_btns = {
+	"controls_ui/Node/bindings/ui_up/Button":{
+		"down":"controls_ui/Node/bindings/ui_down/Button",
+		"up":"controls_ui/Node/bindings/grab/Button",
+		"right":"controls_ui/Node/bindings/cstick_up/Button",
+		"left":"controls_ui/Node/bindings/cstick_up/Button"
+	},
+	"controls_ui/Node/bindings/ui_down/Button":{
+		"down":"controls_ui/Node/bindings/ui_left/Button",
+		"up":"controls_ui/Node/bindings/ui_up/Button",
+		"right":"controls_ui/Node/bindings/cstick_down/Button",
+		"left":"controls_ui/Node/bindings/cstick_down/Button"
+	},
+	"controls_ui/Node/bindings/ui_left/Button":{
+		"down":"controls_ui/Node/bindings/ui_right/Button",
+		"up":"controls_ui/Node/bindings/ui_down/Button",
+		"right":"controls_ui/Node/bindings/cstick_left/Button",
+		"left":"controls_ui/Node/bindings/cstick_left/Button"
+	},
+	"controls_ui/Node/bindings/ui_right/Button":{
+		"down":"controls_ui/Node/bindings/jump/Button",
+		"up":"controls_ui/Node/bindings/ui_left/Button",
+		"right":"controls_ui/Node/bindings/cstick_right/Button",
+		"left":"controls_ui/Node/bindings/cstick_right/Button"
+	},
+	"controls_ui/Node/bindings/jump/Button":{
+		"down":"controls_ui/Node/bindings/shield/Button",
+		"up":"controls_ui/Node/bindings/ui_right/Button",
+		"right":"controls_ui/Node/bindings/Retour_b",
+		"left":"controls_ui/Node/bindings/Retour_b"
+	},
+	"controls_ui/Node/bindings/shield/Button":{
+		"down":"controls_ui/Node/bindings/attack/Button",
+		"up":"controls_ui/Node/bindings/jump/Button",
+		"right":"controls_ui/Node/bindings/Retour_b",
+		"left":"controls_ui/Node/bindings/Retour_b"
+	},
+	"controls_ui/Node/bindings/attack/Button":{
+		"down":"controls_ui/Node/bindings/special/Button",
+		"up":"controls_ui/Node/bindings/shield/Button",
+		"right":"controls_ui/Node/bindings/Retour_b",
+		"left":"controls_ui/Node/bindings/Retour_b"
+	},
+	"controls_ui/Node/bindings/special/Button":{
+		"down":"controls_ui/Node/bindings/grab/Button",
+		"up":"controls_ui/Node/bindings/attack/Button",
+		"right":"controls_ui/Node/bindings/Retour_b",
+		"left":"controls_ui/Node/bindings/Retour_b"
+	},
+	"controls_ui/Node/bindings/grab/Button":{
+		"down":"controls_ui/Node/bindings/ui_up/Button",
+		"up":"controls_ui/Node/bindings/special/Button",
+		"right":"controls_ui/Node/bindings/Retour_b",
+		"left":"controls_ui/Node/bindings/Retour_b"
+	},
+	"controls_ui/Node/bindings/cstick_up/Button":{
+		"down":"controls_ui/Node/bindings/cstick_down/Button",
+		"up":"controls_ui/Node/bindings/Retour_b",
+		"right":"controls_ui/Node/bindings/ui_up/Button",
+		"left":"controls_ui/Node/bindings/ui_up/Button"
+	},
+	"controls_ui/Node/bindings/cstick_down/Button":{
+		"down":"controls_ui/Node/bindings/cstick_left/Button",
+		"up":"controls_ui/Node/bindings/cstick_up/Button",
+		"right":"controls_ui/Node/bindings/ui_down/Button",
+		"left":"controls_ui/Node/bindings/ui_down/Button"
+	},
+	"controls_ui/Node/bindings/cstick_left/Button":{
+		"down":"controls_ui/Node/bindings/cstick_right/Button",
+		"up":"controls_ui/Node/bindings/cstick_down/Button",
+		"right":"controls_ui/Node/bindings/ui_left/Button",
+		"left":"controls_ui/Node/bindings/ui_left/Button"
+	},
+	"controls_ui/Node/bindings/cstick_right/Button":{
+		"down":"controls_ui/Node/bindings/Retour_b",
+		"up":"controls_ui/Node/bindings/cstick_left/Button",
+		"right":"controls_ui/Node/bindings/ui_right/Button",
+		"left":"controls_ui/Node/bindings/ui_right/Button"
+	},
+	"controls_ui/Node/bindings/Retour_b":{
+		"down":"controls_ui/Node/bindings/cstick_up/Button",
+		"up":"controls_ui/Node/bindings/cstick_right/Button",
+		"right":"controls_ui/Node/bindings/jump/Button",
+		"left":"controls_ui/Node/bindings/jump/Button"
 	}
 }
 
@@ -59,6 +146,8 @@ func _ready():
 	get_node("Menu").visible=true
 	get_node("Options menu").visible=false
 	get_node("Lobby").visible = false
+	get_node("controls_ui").visible = false
+	
 	get_node("/root/Audio_Manager").playmusic('Music/Menu','music',0.8)
 
 
@@ -119,6 +208,11 @@ func _input(event):
 			change_button("down")
 		elif event.is_action_pressed("ui_up"):
 			change_button("up")
+		elif current_panel == "Commandes" :
+			if event.is_action_pressed("ui_right") :
+				change_button("right")
+			if event.is_action_pressed("ui_left") :
+				change_button("left")
 	elif event is InputEventJoypadMotion :
 		if get_node("Timer").is_stopped() :
 			if get_node("Timer/TimerTimer").is_stopped() :
@@ -128,13 +222,25 @@ func _input(event):
 				elif event.axis == JOY_AXIS_1 && event.axis_value < -0.3 :
 					change_button("up")
 					get_node("Timer").start()
+				elif current_panel == "Commandes" :
+					if event.axis == JOY_AXIS_0 && event.axis_value > 0.3 :
+						change_button("right")
+						get_node("Timer").start()
+					if event.axis == JOY_AXIS_0 && event.axis_value < -0.3:
+						change_button("left")
+						get_node("Timer").start()
 	elif current_panel == "Options" :
 		if event is InputEventKey :
-			if current_focused_button == "Options menu/Volume" :
+			if current_focused_button == "Options menu/Volume Musique" :
 				if event.is_action_pressed("ui_left"):
-					get_node("Options menu/Volume").value += 1
+					get_node("Options menu/Volume Musique").value += 1
 				elif event.is_action_pressed("ui_right"):
-					get_node("Options menu/Volume").value -= 1
+					get_node("Options menu/Volume Musique").value -= 1
+			if current_focused_button == "Options menu/Volume Effets" :
+				if event.is_action_pressed("ui_left"):
+					get_node("Options menu/Volume Effets").value += 1
+				elif event.is_action_pressed("ui_right"):
+					get_node("Options menu/Volume Effets").value -= 1
 			if event.is_action_pressed("ui_down"):
 				change_button("down")
 			elif event.is_action_pressed("ui_up"):
@@ -171,10 +277,30 @@ func _on_TimerTimer_timeout():
 
 
 func _on_Commandes_pressed():
-	get_tree().change_scene("res://Controls/controls.tscn")
+	get_node("controls_ui").visible=true
+	get_node("Options menu").visible=false
+	current_panel="Commandes"
+	
+	current_focused_button="controls_ui/Node/bindings/ui_up/Button"
+	get_node(current_focused_button).grab_focus()
+
+	btns = controls_btns
 
 
 func _on_Smash_pressed():
 	get_tree().change_scene("res://Scenes/Instancing_Test.tscn")
 	pass # replace with function body
 
+
+
+func _on_Retour_b_pressed():
+	get_node("controls_ui").visible=false
+	get_node("Options menu").visible=true
+	
+	current_panel="Options"
+	
+	current_focused_button="Options menu/Volume Musique"
+	get_node(current_focused_button).grab_focus()
+
+	btns = options_btns
+	pass # replace with function body
