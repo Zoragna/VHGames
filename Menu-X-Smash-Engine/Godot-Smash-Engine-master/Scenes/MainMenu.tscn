@@ -118,6 +118,8 @@ align = 1
 
 [node name="Options menu" type="Node2D" parent="." index="1"]
 
+editor/display_folded = true
+
 [node name="Musique" type="RichTextLabel" parent="Options menu" index="0"]
 
 anchor_left = 0.0
@@ -311,6 +313,7 @@ size_flags_vertical = 1
 
 [node name="VBox" type="VBoxContainer" parent="Lobby/BeforeConnection" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -328,6 +331,7 @@ alignment = 0
 
 [node name="Info" type="HBoxContainer" parent="Lobby/BeforeConnection/VBox" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -391,6 +395,7 @@ edit_alpha = true
 
 [node name="HBox" type="HBoxContainer" parent="Lobby/BeforeConnection/VBox" index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -408,6 +413,7 @@ alignment = 0
 
 [node name="Host" type="VBoxContainer" parent="Lobby/BeforeConnection/VBox/HBox" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -492,6 +498,7 @@ _sections_unfolded = [ "Material", "custom_colors" ]
 
 [node name="CenterContainer" type="CenterContainer" parent="Lobby/BeforeConnection/VBox/HBox" index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -533,6 +540,7 @@ align = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Lobby/BeforeConnection/VBox/HBox" index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -596,6 +604,7 @@ caret_position = 0
 
 [node name="Hosting" type="MarginContainer" parent="Lobby" index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -745,6 +754,45 @@ caret_blink_speed = 0.65
 caret_position = 0
 
 [node name="controls_ui" parent="." index="3" instance=ExtResource( 5 )]
+
+editor/display_folded = true
+visible = false
+
+[node name="ui_up" parent="controls_ui/Node/bindings" index="0"]
+
+editor/display_folded = true
+
+[node name="ui_down" parent="controls_ui/Node/bindings" index="1"]
+
+editor/display_folded = true
+
+[node name="ui_left" parent="controls_ui/Node/bindings" index="2"]
+
+editor/display_folded = true
+
+[node name="ui_right" parent="controls_ui/Node/bindings" index="3"]
+
+editor/display_folded = true
+
+[node name="jump" parent="controls_ui/Node/bindings" index="8"]
+
+editor/display_folded = true
+
+[node name="shield" parent="controls_ui/Node/bindings" index="9"]
+
+editor/display_folded = true
+
+[node name="attack" parent="controls_ui/Node/bindings" index="10"]
+
+editor/display_folded = true
+
+[node name="special" parent="controls_ui/Node/bindings" index="11"]
+
+editor/display_folded = true
+
+[node name="grab" parent="controls_ui/Node/bindings" index="12"]
+
+editor/display_folded = true
 
 [node name="ParallaxBackground" parent="controls_ui" index="2"]
 

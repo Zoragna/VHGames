@@ -30,7 +30,7 @@ func _ready():
 	get_tree().connect("server_disconnected", self, "_host_disconnected")
 
 func hosting_add_label(info, id) :
-	var label = load("res://PeerName.tscn").instance()
+	var label = load("res://Scenes/PeerName.tscn").instance()
 	label.set_name(str(id))
 	label.text = info["name"]
 	label.set("custom_colors/font_color", info["color"])

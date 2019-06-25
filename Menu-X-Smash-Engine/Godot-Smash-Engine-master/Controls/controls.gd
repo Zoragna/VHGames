@@ -62,7 +62,6 @@ func wait_for_input(action_bind):
 	action = action_bind
 	# See note at the beginning of the script
 	button = get_node("bindings").get_node(action).get_node("Button")
-	button2 = get_node("bindings").get_node(action).get_node("Button2")
 	get_node("contextual_help").text = "Press a key to assign to the '" + action + "' action."
 	set_process_input(true)
 
@@ -92,7 +91,6 @@ func _input(event):
 			if event is InputEventKey:
 				update_device(event)
 				button.text = OS.get_scancode_string(event.scancode)
-				button2.text = OS.get_scancode_string(event.scancode)
 			if event is InputEventJoypadButton:
 				update_device(event)
 				

@@ -47,6 +47,51 @@ const options_btns = {
 	}
 }
 
+const lobby_btns = {
+	"Lobby/BeforeConnection/VBox/Info/LineEdit":{
+		"down":"Lobby/BeforeConnection/VBox/HBox/Host/ConnectButton",
+		"up":"Lobby/BeforeConnection/VBox/HBox/Host/HostIPLine",
+		"right":"Lobby/BeforeConnection/VBox/Info/ColorPickerButton",
+		"left":"Lobby/BeforeConnection/VBox/Info/ColorPickerButton"
+	},
+	"Lobby/BeforeConnection/VBox/Info/ColorPickerButton":{
+		"down":"Lobby/BeforeConnection/VBox/HBox/Host/ConnectButton",
+		"up":"Lobby/BeforeConnection/VBox/HBox/Host/HostIPLine",
+		"right":"Lobby/BeforeConnection/VBox/Info/LineEdit",
+		"left":"Lobby/BeforeConnection/VBox/Info/LineEdit"
+	},
+	"Lobby/BeforeConnection/VBox/HBox/Host/ConnectButton":{
+		"down":"Lobby/BeforeConnection/VBox/HBox/Host/HostIPLine",
+		"up":"Lobby/BeforeConnection/VBox/Info/LineEdit",
+		"right":"Lobby/BeforeConnection/VBox/HBox/VBoxContainer2/HostButton",
+		"left":"Lobby/BeforeConnection/VBox/HBox/VBoxContainer2/HostButton"
+	},
+	"Lobby/BeforeConnection/VBox/HBox/VBoxContainer2/HostButton":{
+		"down":"Lobby/BeforeConnection/VBox/HBox/VBoxContainer2/PortEdit",
+		"up":"Lobby/BeforeConnection/VBox/HBox/VBoxContainer2/PortEdit",
+		"right":"Lobby/BeforeConnection/VBox/HBox/Host/ConnectButton",
+		"left":"Lobby/BeforeConnection/VBox/HBox/Host/ConnectButton"
+	},
+	"Lobby/BeforeConnection/VBox/HBox/Host/HostIPLine":{
+		"down":"Lobby/BeforeConnection/VBox/Info/LineEdit",
+		"up":"Lobby/BeforeConnection/VBox/HBox/Host/ConnectButton",
+		"right":"Lobby/BeforeConnection/VBox/HBox/CenterContainer/Retour",
+		"left":"Lobby/BeforeConnection/VBox/HBox/VBoxContainer2/PortEdit"
+	},
+	"Lobby/BeforeConnection/VBox/HBox/CenterContainer/Retour":{
+		"down":"Lobby/BeforeConnection/VBox/HBox/CenterContainer/Retour",
+		"up":"Lobby/BeforeConnection/VBox/HBox/CenterContainer/Retour",
+		"right":"Lobby/BeforeConnection/VBox/HBox/VBoxContainer2/PortEdit",
+		"left":"Lobby/BeforeConnection/VBox/HBox/Host/HostIPLine"
+	},
+	"Lobby/BeforeConnection/VBox/HBox/VBoxContainer2/PortEdit":{
+		"down":"Lobby/BeforeConnection/VBox/HBox/VBoxContainer2/HostButton",
+		"up":"Lobby/BeforeConnection/VBox/HBox/VBoxContainer2/HostButton",
+		"right":"Lobby/BeforeConnection/VBox/HBox/Host/HostIPLine",
+		"left":"Lobby/BeforeConnection/VBox/HBox/CenterContainer/Retour"
+	}
+}
+
 const controls_btns = {
 	"controls_ui/Node/bindings/ui_up/Button":{
 		"down":"controls_ui/Node/bindings/ui_down/Button",
@@ -176,6 +221,13 @@ func _on_Start_pressed():
 	get_node("Menu").visible = false
 	get_node("Options menu").visible = false
 	get_node("Lobby").visible = true
+	
+	current_panel = "Lobby"
+	
+	current_focused_button="Lobby/BeforeConnection/VBox/HBox/CenterContainer/Retour"
+	get_node(current_focused_button).grab_focus()
+	
+	btns = lobby_btns
 
 func _on_Quit_pressed():
 	get_tree().quit()
@@ -195,24 +247,21 @@ func _on_Retour_pressed():
 func change_button(direction):
 	print(direction)
 	print(current_focused_button)
-	print(btns)
-	print(btns[current_focused_button])
+	#print(btns)
+	#print(btns[current_focused_button])
 	print(btns[current_focused_button][direction])
 	current_focused_button = btns[current_focused_button][direction]
 	get_node(current_focused_button).grab_focus()
+	print(current_focused_button)
 
 func _input(event):
 	#get_node(current_focused_button).grab_focus()
 	if event is InputEventKey : #&& !event.is_echo() :
-		if event.is_action_pressed("ui_down"):
-			change_button("down")
-		elif event.is_action_pressed("ui_up"):
-			change_button("up")
-		elif current_panel == "Commandes" :
-			if event.is_action_pressed("ui_right") :
-				change_button("right")
-			if event.is_action_pressed("ui_left") :
-				change_button("left")
+		if  current_panel != "Commandes" && current_panel == "Lobby" :
+			if event.is_action_pressed("ui_down"):
+				change_button("down")
+			elif event.is_action_pressed("ui_up"):
+				change_button("up")
 	elif event is InputEventJoypadMotion :
 		if get_node("Timer").is_stopped() :
 			if get_node("Timer/TimerTimer").is_stopped() :
@@ -222,7 +271,7 @@ func _input(event):
 				elif event.axis == JOY_AXIS_1 && event.axis_value < -0.3 :
 					change_button("up")
 					get_node("Timer").start()
-				elif current_panel == "Commandes" :
+				elif current_panel == "Commandes" || current_panel=="Lobby" :
 					if event.axis == JOY_AXIS_0 && event.axis_value > 0.3 :
 						change_button("right")
 						get_node("Timer").start()
