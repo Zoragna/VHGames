@@ -257,7 +257,7 @@ func change_button(direction):
 func _input(event):
 	#get_node(current_focused_button).grab_focus()
 	if event is InputEventKey : #&& !event.is_echo() :
-		if  current_panel != "Commandes" && current_panel == "Lobby" :
+		if  current_panel != "Commandes" && current_panel != "Lobby" :
 			if event.is_action_pressed("ui_down"):
 				change_button("down")
 			elif event.is_action_pressed("ui_up"):
