@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/double_jump.ogg-8947fd44368363bdc8721aecabc48668.oggstr"
+
+[deps]
+
+source_file="res://Sound/SFX/ProtoChar/double_jump.ogg"
+dest_files=[ "res://.import/double_jump.ogg-8947fd44368363bdc8721aecabc48668.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
