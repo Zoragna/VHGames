@@ -18,7 +18,7 @@ func _ready():
 	node.set_controls(p1_controls)
 	node2.set_controls(p2_controls)
 	add_child(stage.instance())
-#	add_child(audio.instance())
+	add_child(audio.instance())
 	add_child(camera.instance())
 	add_child(node)
 	add_child(hud.instance())

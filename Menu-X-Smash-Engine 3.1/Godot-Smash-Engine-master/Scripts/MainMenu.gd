@@ -193,18 +193,18 @@ func _ready():
 	get_node("Lobby").visible = false
 	get_node("controls_ui").visible = false
 	
-#	get_node("/root/Audio_Manager").playmusic('Music/Menu','music',0.8)
+	get_node("/root/Audio_Manager").playmusic('Menu.ogg',0.0)
 
 
 
 func _on_Volume_value_changed(value):
-#	get_node("/root/Audio_Manager").set_song_volume(value)
+	get_node("/root/Audio_Manager").set_song_volume(value)
 	#get_node("son").volume_db= (value-79)/100
-	pass
+	
 	
 func _on_Volume_Effets_value_changed(value):
-#	get_node("/root/Audio_Manager").set_sfx_volume(value)
-	pass
+	get_node("/root/Audio_Manager").set_sfx_volume(value)
+	
 
 
 func _on_Options_pressed():
