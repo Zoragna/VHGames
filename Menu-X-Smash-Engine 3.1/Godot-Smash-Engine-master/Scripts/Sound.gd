@@ -32,10 +32,11 @@ func set_song_volume(value):
 	Music.set_volume_db(value)
 
 
-func playsfx(sfx, volume):
+func playsfx(sfx):
 	var s = load("res://Sound/SFX/ProtoChar/" + sfx)
+	var v = Sfx.get_volume_db()
 	Sfx.set_stream(s)
-	Sfx.set_volume_db(volume)
+	Sfx.set_volume_db(v)
 	Sfx.play()
 
 func set_sfx_volume(value):

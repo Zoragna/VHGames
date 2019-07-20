@@ -550,7 +550,7 @@ func collision_handler():
 		var collider = ledge_rayF.get_collider ( )
 		if collider.get_node('Type').text == 'LedgeL' and state_includes([AIR,FREE_FALL]) and velocity.y > 0 and not Input.is_action_pressed(down) and regrab == 0 and ledge_rayF.get_cast_to().x>0 and not collider.is_grabbed:
 			state = LEDGE_CATCH
-			audio.playsfx('ledge.wav',0.7)
+			audio.playsfx('ledge.wav')
 			timer = 0
 			velocity.x=0
 			velocity.y=0
@@ -566,7 +566,7 @@ func collision_handler():
 		var collider = ledge_rayF.get_collider ( )
 		if collider.get_node('Type').text == 'LedgeR' and state_includes([AIR,FREE_FALL]) and velocity.y > 0 and not Input.is_action_pressed(down) and regrab == 0 and ledge_rayF.get_cast_to().x<0 and not collider.is_grabbed:
 			state = LEDGE_CATCH
-			audio.playsfx('ledge.wav',0.7)
+			audio.playsfx('ledge.wav')
 			timer = 0
 			velocity.x=0
 			velocity.y=0
@@ -585,7 +585,7 @@ func aerial_acceleration():
 		if Input.is_action_just_pressed(down) and velocity.y > 0 and not fast_fall :
 			velocity.y = max_fall_speed
 			fast_fall = true
-			audio.playsfx('fast_fall.wav',0.6)
+			audio.playsfx('fast_fall.wav')
 			
 		if fast_fall == true:
 			velocity.y = max_fall_speed
@@ -633,7 +633,7 @@ func air_state():
 			timer = 0
 			
 		if Input.is_action_just_pressed(jump) and jumps < max_air_jumps:
-			audio.playsfx('double_jump.wav',0.74)
+			audio.playsfx('double_jump.wav')
 			fast_fall = false
 			velocity.y = -second_jump_speed
 			if Input.is_action_pressed(left):
@@ -679,7 +679,7 @@ func air_dodge_state():
 			
 		if timer >= 4 and timer <= 10:
 			if timer == 5:
-				audio.playsfx('air_dodge.wav',0.74)
+				audio.playsfx('air_dodge.wav')
 			velocity.x = velocity.x/1.15
 			velocity.y = velocity.y/1.15
 		if timer >=10 and timer < 20:		
@@ -752,7 +752,7 @@ func stand_state():
 	if state == STAND:
 		if Input.is_action_just_pressed(down):
 			state = CROUCH
-			audio.playsfx('land.ogg',0.0)
+			audio.playsfx('land.ogg')
 			timer = 0
 		if Input.is_action_just_pressed(jump):
 			timer = 0
@@ -762,7 +762,7 @@ func stand_state():
 		if Input.is_action_pressed(left):
 			velocity.x = -run_speed
 			state = DASH
-			audio.playsfx('dash.ogg',1.1)
+			audio.playsfx('dash.ogg')
 			
 			turn(true)
 			timer = 0
@@ -770,7 +770,7 @@ func stand_state():
 		elif Input.is_action_pressed(right):
 			velocity.x = run_speed
 			state = DASH
-			audio.playsfx('dash.ogg',1.1)
+			audio.playsfx('dash.ogg')
 			turn(false)
 			timer = 0
 			
@@ -786,7 +786,7 @@ func short_hop_state():
 		velocity.y = -short_hop_speed
 		state = AIR
 		timer = 0
-		audio.playsfx('jump.ogg',0.6)
+		audio.playsfx('jump.ogg')
 		if Input.is_action_just_pressed(shield):
 			state = AIR_DODGE
 			timer = 0
@@ -798,7 +798,7 @@ func full_hop_state():
 		velocity.y = -jump_speed
 		state = AIR
 		timer = 0
-		audio.playsfx('jump.ogg',0.6)
+		audio.playsfx('jump.ogg')
 		if Input.is_action_just_pressed(shield):
 			state = AIR_DODGE
 			timer = 0
@@ -869,7 +869,7 @@ func dash_state():
 
 		elif Input.is_action_pressed(left):
 			if velocity.x > 0:
-				audio.playsfx('dash.ogg',1.1)
+				audio.playsfx('dash.ogg')
 				timer = 0
 			velocity.x = -dash_speed
 			if timer <= dash_duration:
@@ -882,7 +882,7 @@ func dash_state():
 
 		elif Input.is_action_pressed(right):
 			if velocity.x < 0:
-				audio.playsfx('dash.ogg',1.1)
+				audio.playsfx('dash.ogg')
 				timer = 0
 			velocity.x = dash_speed
 			if timer <= dash_duration:
@@ -928,7 +928,7 @@ func landing_state():
 	if state ==LANDING:		
 		if timer <= landing_frames + lag_frames:
 			if timer == 1:
-				audio.playsfx('land.ogg',1.1)
+				audio.playsfx('land.ogg')
 			#print('Landing')
 			
 			if velocity.x > 0:
