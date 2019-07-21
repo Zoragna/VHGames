@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Selection.gd" type="Script" id=1]
+
+[node name="Selection" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 409.996
+margin_top = 596.906
+margin_right = 700.996
+margin_bottom = 705.906
+text = "Retour"
+
+[node name="Button4" type="Button" parent="."]
+margin_left = 719.653
+margin_top = 589.353
+margin_right = 1010.65
+margin_bottom = 698.353
+text = "Smash"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+margin_left = 226.101
+margin_top = 66.323
+margin_right = 898.101
+margin_bottom = 435.323
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 183.211
+margin_top = 483.012
+margin_right = 915.211
+margin_bottom = 589.012
+rect_scale = Vector2( 1, 0.843615 )
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 946.0
+margin_top = 483.0
+margin_right = 970.0
+margin_bottom = 509.0
+text = "+"
+
+[node name="Button3" type="Button" parent="."]
+margin_left = 946.0
+margin_top = 520.05
+margin_right = 970.0
+margin_bottom = 546.05
+text = "-"
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Button4" to="." method="_on_Button4_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_Button3_pressed"]

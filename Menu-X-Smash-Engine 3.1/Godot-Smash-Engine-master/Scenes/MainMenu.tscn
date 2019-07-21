@@ -10,7 +10,6 @@
 script = ExtResource( 1 )
 
 [node name="Menu" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Smash" type="Button" parent="Menu"]
 margin_left = 466.0
@@ -40,8 +39,17 @@ margin_right = 617.0
 margin_bottom = 446.0
 text = "Quit"
 
+[node name="Selection" type="Button" parent="Menu"]
+margin_left = 446.331
+margin_top = 564.971
+margin_right = 640.331
+margin_bottom = 622.971
+text = "Sélection des personnages"
+clip_text = true
+
 [node name="Options menu" type="Node2D" parent="."]
 editor/display_folded = true
+visible = false
 
 [node name="Musique" type="RichTextLabel" parent="Options menu"]
 margin_left = 491.0
@@ -100,6 +108,7 @@ text = "Retour"
 
 [node name="Lobby" parent="." instance=ExtResource( 2 )]
 editor/display_folded = true
+visible = false
 
 [node name="BeforeConnection" type="MarginContainer" parent="Lobby"]
 editor/display_folded = true
@@ -234,6 +243,7 @@ mouse_default_cursor_shape = 0
 
 [node name="controls_ui" parent="." instance=ExtResource( 5 )]
 editor/display_folded = true
+visible = false
 
 [node name="Node" parent="controls_ui" index="1"]
 editor/display_folded = true
@@ -282,6 +292,7 @@ one_shot = true
 [connection signal="focus_entered" from="Menu/Quit" to="." method="_on_Quit_focus_entered"]
 [connection signal="focus_exited" from="Menu/Quit" to="." method="_on_Quit_focus_exited"]
 [connection signal="pressed" from="Menu/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="Menu/Selection" to="." method="_on_Selection_pressed"]
 [connection signal="value_changed" from="Options menu/Volume Musique" to="." method="_on_Volume_value_changed"]
 [connection signal="value_changed" from="Options menu/Volume Effets" to="." method="_on_Volume_Effets_value_changed"]
 [connection signal="pressed" from="Options menu/Commandes" to="." method="_on_Commandes_pressed"]

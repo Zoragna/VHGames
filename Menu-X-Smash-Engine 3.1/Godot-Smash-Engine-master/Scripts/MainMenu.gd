@@ -24,7 +24,11 @@ const main_btns = {
 	},
 	"Menu/Quit":{
 		"down":"Menu/Smash",
-		"up":"Menu/Options"
+		"up":"Menu/Selection"
+	},
+	"Menu/Selection":{
+		"down":"Menu/Smash",
+		"up":"Menu/Quit",
 	}
 }
 	
@@ -340,9 +344,6 @@ func _on_Commandes_pressed():
 
 func _on_Smash_pressed():
 	get_tree().change_scene("res://Scenes/Instancing_Test.tscn")
-	pass # replace with function body
-
-
 
 func _on_Retour_b_pressed():
 	get_node("controls_ui").visible=false
@@ -354,4 +355,7 @@ func _on_Retour_b_pressed():
 	get_node(current_focused_button).grab_focus()
 
 	btns = options_btns
-	pass # replace with function body
+
+
+func _on_Selection_pressed():
+	get_tree().change_scene("res://Scenes/Selection.tscn")
