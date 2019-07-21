@@ -22,7 +22,6 @@ config/icon="res://icon.png"
 
 [audio]
 
-driver="RtAudio-DirectSound"
 channel_disable_time=4.0
 
 [autoload]
