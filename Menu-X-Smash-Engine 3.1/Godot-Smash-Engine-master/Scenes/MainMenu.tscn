@@ -41,7 +41,6 @@ margin_bottom = 446.0
 text = "Quit"
 
 [node name="Options menu" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Musique" type="RichTextLabel" parent="Options menu"]
 margin_left = 491.0

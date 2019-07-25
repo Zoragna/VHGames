@@ -193,7 +193,9 @@ func _ready():
 	get_node("Lobby").visible = false
 	get_node("controls_ui").visible = false
 	
-	get_node("/root/Audio_Manager").playmusic('Menu.ogg',0.0)
+	get_node("/root/Audio_Manager").playmusic('Menu.ogg')
+	get_node("Options menu/Volume Musique").value = get_node("/root/Audio_Manager").data["volume"]["music"]
+	get_node("Options menu/Volume Effets").value = get_node("/root/Audio_Manager").data["volume"]["sfx"]
 
 
 
@@ -204,6 +206,7 @@ func _on_Volume_value_changed(value):
 	
 func _on_Volume_Effets_value_changed(value):
 	get_node("/root/Audio_Manager").set_sfx_volume(value)
+	get_node("/root/Audio_Manager").playsfx("air_dodge.ogg")
 	
 
 
