@@ -27,7 +27,7 @@ const main_btns = {
 		"up":"Menu/Options"
 	}
 }
-	
+
 const options_btns = {
 	"Options menu/Volume Musique":{
 		"down":"Options menu/Volume Effets",
