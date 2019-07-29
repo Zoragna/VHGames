@@ -1,0 +1,2 @@
+{"input":{"ui_up":{"type":"joyaxis","axis":1,"axis_value":-1},"ui_down":{"type":"joyaxis","axis":1,"axis_value":0.335083},"ui_left":{"type":"joyaxis","axis":0,"axis_value":-1},"ui_right":{"type":"joyaxis","axis":0,"axis_value":0.82458},"jump":{"type":"joybutton","index":0},"shield":82,"attack":{"type":"joyaxis","axis":7,"axis_value":0.423529},"special":87,"grab":49,"cstick_up":0,"cstick_down":0,"cstick_left":0,"cstick_right":0}}
+tKey:1331]"}}

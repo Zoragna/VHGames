@@ -6,6 +6,7 @@ extends Node
 onready var p1_controls = ['ui_up','ui_down','ui_left','ui_right','attack','special','jump','shield','grab',get_node('/root/global').p1_device['device'],get_node('/root/global').p1_device['keyboard'],get_node('/root/global').p1_device['joypad'],'cstick_up','cstick_down','cstick_left','cstick_right']
 var p2_controls = ['p2_up','p2_down','p2_left','p2_right','p2_attack','p2_special','p2_jump','p2_shield','p2_grab','0','0','0','0','0','0','0','0']
 
+
 func _ready():
 	print()
 	var stage =  load('res://Scenes/Battlefield.tscn')
