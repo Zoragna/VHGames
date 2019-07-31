@@ -111,7 +111,6 @@ func update_device(event):
 	else:
 		get_node('/root/global').p1_device['keyboard'] = false
 		get_node('/root/global').p1_device['joypad'] = true
-	
 
 func _input(event):
 	# Handle the first pressed key
