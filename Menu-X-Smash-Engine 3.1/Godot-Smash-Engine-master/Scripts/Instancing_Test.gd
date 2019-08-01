@@ -8,7 +8,6 @@ var p2_controls = ['p2_up','p2_down','p2_left','p2_right','p2_attack','p2_specia
 
 
 func _ready():
-	print()
 	var stage =  load('res://Scenes/Battlefield.tscn')
 	var camera = load('res://Scenes/Camera.tscn')
 	var audio = load('res://Scenes/Audio_Manager.tscn')

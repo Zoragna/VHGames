@@ -206,7 +206,8 @@ func _on_Volume_value_changed(value):
 	
 func _on_Volume_Effets_value_changed(value):
 	get_node("/root/Audio_Manager").set_sfx_volume(value)
-	get_node("/root/Audio_Manager").playsfx("air_dodge.ogg")
+	if current_panel == "Options":
+		get_node("/root/Audio_Manager").playsfx("air_dodge.ogg")
 	
 
 
