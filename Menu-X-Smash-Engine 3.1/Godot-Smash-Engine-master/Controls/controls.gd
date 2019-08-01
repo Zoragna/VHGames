@@ -13,48 +13,86 @@ extends Control
 
 # Constants
 const INPUT_ACTIONS = [ "ui_up", "ui_down", "ui_left", "ui_right", "jump", 'shield', 'attack', 'special', 'grab', 'cstick_up','cstick_down','cstick_left','cstick_right' ]
-const CONFIG_FILE = "res://input.cfg"
+const CONFIG_FILE = "res://Controls/config.json"#"res://input.cfg"
 
 # Member variables
 var action # To register the action the UI is currently handling
 var button # Button node corresponding to the above action
-var button2
+var inputs
 var deadzone = 0.3
 var deadzone_flag = false
 # Load/save input mapping to a config file
 # Changes done while testing the demo will be persistent, saved to CONFIG_FILE
 
 func load_config():
-	var config = ConfigFile.new()
-	var err = config.load(CONFIG_FILE)
-	if err: # Assuming that file is missing, generate default config
+#	var config = ConfigFile.new()
+#	var err = config.load(CONFIG_FILE)
+#	if err: # Assuming that file is missing, generate default config
+	var config = File.new()
+	config.open(CONFIG_FILE, config.READ_WRITE)
+	var text = config.get_as_text()
+	var jdata = JSON.parse(text)
+	inputs = jdata.result
+	if jdata.error != OK :
 		for action_name in INPUT_ACTIONS:
 			var action_list = InputMap.get_action_list(action_name)
 			# There could be multiple actions in the list, but we save the first one by default
 			var new_event = InputEventKey.new()
 			if len(action_list) > 0:
 				new_event.scancode = action_list[0].scancode
-			config.set_value("input", action_name, new_event)
-		config.save(CONFIG_FILE)
+			inputs["input"][action_name] = new_event.scancode
+		config.store_line(JSON.print(inputs))
+#		config.set_value("input", action_name, new_event)
+#		config.save(CONFIG_FILE)
 	else: # ConfigFile was properly loaded, initialize InputMap
-		for action_name in config.get_section_keys("input"):
-			var value = config.get_value("input", action_name)
+		for action_name in inputs["input"]:
+			var value = inputs["input"][action_name]
 			for old_event in InputMap.get_action_list(action_name):
 				InputMap.action_erase_event(action_name, old_event)
-			InputMap.action_add_event(action_name, value)
-			update_device(value)
+			if value is float :
+				var new_event = InputEventKey.new()
+				new_event.scancode = value
+				InputMap.action_add_event(action_name, new_event)
+				update_device(new_event)
+			elif value["type"] == "joybutton" :
+				var new_event = InputEventJoypadButton.new()
+				new_event.button_index = value["index"]
+				InputMap.action_add_event(action_name, new_event)
+				update_device(new_event)
+			else :
+				var new_event = InputEventJoypadMotion.new()
+				new_event.axis = value["axis"]
+				new_event.axis_value = value["axis_value"]
+				InputMap.action_add_event(action_name, new_event)
+				update_device(new_event)
 			# Create a new event object based on the saved scancode
+	config.close()
+
 
 func save_to_config(section, key, value):
 	"""Helper function to redefine a parameter in the settings file"""
-	var config = ConfigFile.new()
-	var err = config.load(CONFIG_FILE)
-	if err:
-		print("Error code when loading config file: ", err)
+#	var config = ConfigFile.new()
+#	var err = config.load(CONFIG_FILE)
+#	if err:
+	var config = File.new()
+	config.open(CONFIG_FILE, config.READ_WRITE)
+	var text = config.get_as_text()
+	var jdata = JSON.parse(text)
+	inputs = jdata.result
+	if jdata.error != OK :
+		print("Error code when loading config file: ", jdata.error)
 	else:
 		#Saves the InputEvent object directly to the file
-		config.set_value(section, key, value)
-		config.save(CONFIG_FILE)
+		if value is InputEventKey:
+			inputs[section][key] = value.scancode
+		elif value is InputEventJoypadButton:
+			inputs[section][key] = {"type":"joybutton","index": value.button_index}
+		else:
+			inputs[section][key] = {"type": "joyaxis","axis": value.axis, "axis_value": value.axis_value}
+		config.store_line(JSON.print(inputs))
+#		config.set_value(section, key, value)
+#		config.save(CONFIG_FILE
+	config.close()
 
 
 # Input management
@@ -73,7 +111,6 @@ func update_device(event):
 	else:
 		get_node('/root/global').p1_device['keyboard'] = false
 		get_node('/root/global').p1_device['joypad'] = true
-	
 
 func _input(event):
 	# Handle the first pressed key
