@@ -1,0 +1,213 @@
+{
+	"const":{
+		"buttons":{
+			"main_btns":{
+				"Menu/Smash":{
+					"down":"Menu/Start",
+					"up":"Menu/Quit"
+				},
+				"Menu/Start":{
+					"down":"Menu/Options",
+					"up":"Menu/Smash"
+				},
+				"Menu/Options":{
+					"down":"Menu/Quit",
+					"up":"Menu/Start"
+				},
+				"Menu/Quit":{
+					"down":"Menu/Smash",
+					"up":"Menu/Options"
+				}
+			},
+
+			"options_btns":{
+				"Options menu/Volume Musique":{
+					"down":"Options menu/Volume Effets",
+					"up":"Options menu/Retour"
+				},
+				"Options menu/Volume Effets":{
+					"down":"Options menu/Commandes",
+					"up":"Options menu/Volume Musique"
+				},
+				"Options menu/Commandes":{
+					"down":"Options menu/Retour",
+					"up":"Options menu/Volume Effets"
+				},
+				"Options menu/Retour":{
+					"down":"Options menu/Volume Musique",
+					"up":"Options menu/Commandes"
+				}
+			},
+
+			"lobby_btns":{
+				"Lobby/BeforeConnection/VBox/Info/LineEdit":{
+					"down":"Lobby/BeforeConnection/VBox/HBox/Host/ConnectButton",
+					"up":"Lobby/BeforeConnection/VBox/HBox/Host/HostIPLine",
+					"right":"Lobby/BeforeConnection/VBox/Info/ColorPickerButton",
+					"left":"Lobby/BeforeConnection/VBox/Info/ColorPickerButton"
+				},
+				"Lobby/BeforeConnection/VBox/Info/ColorPickerButton":{
+					"down":"Lobby/BeforeConnection/VBox/HBox/Host/ConnectButton",
+					"up":"Lobby/BeforeConnection/VBox/HBox/Host/HostIPLine",
+					"right":"Lobby/BeforeConnection/VBox/Info/LineEdit",
+					"left":"Lobby/BeforeConnection/VBox/Info/LineEdit"
+				},
+				"Lobby/BeforeConnection/VBox/HBox/Host/ConnectButton":{
+					"down":"Lobby/BeforeConnection/VBox/HBox/Host/HostIPLine",
+					"up":"Lobby/BeforeConnection/VBox/Info/LineEdit",
+					"right":"Lobby/BeforeConnection/VBox/HBox/VBoxContainer2/HostButton",
+					"left":"Lobby/BeforeConnection/VBox/HBox/VBoxContainer2/HostButton"
+				},
+				"Lobby/BeforeConnection/VBox/HBox/VBoxContainer2/HostButton":{
+					"down":"Lobby/BeforeConnection/VBox/HBox/VBoxContainer2/PortEdit",
+					"up":"Lobby/BeforeConnection/VBox/HBox/VBoxContainer2/PortEdit",
+					"right":"Lobby/BeforeConnection/VBox/HBox/Host/ConnectButton",
+					"left":"Lobby/BeforeConnection/VBox/HBox/Host/ConnectButton"
+				},
+				"Lobby/BeforeConnection/VBox/HBox/Host/HostIPLine":{
+					"down":"Lobby/BeforeConnection/VBox/Info/LineEdit",
+					"up":"Lobby/BeforeConnection/VBox/HBox/Host/ConnectButton",
+					"right":"Lobby/BeforeConnection/VBox/HBox/CenterContainer/Retour",
+					"left":"Lobby/BeforeConnection/VBox/HBox/VBoxContainer2/PortEdit"
+				},
+				"Lobby/BeforeConnection/VBox/HBox/CenterContainer/Retour":{
+					"down":"Lobby/BeforeConnection/VBox/HBox/CenterContainer/Retour",
+					"up":"Lobby/BeforeConnection/VBox/HBox/CenterContainer/Retour",
+					"right":"Lobby/BeforeConnection/VBox/HBox/VBoxContainer2/PortEdit",
+					"left":"Lobby/BeforeConnection/VBox/HBox/Host/HostIPLine"
+				},
+				"Lobby/BeforeConnection/VBox/HBox/VBoxContainer2/PortEdit":{
+					"down":"Lobby/BeforeConnection/VBox/HBox/VBoxContainer2/HostButton",
+					"up":"Lobby/BeforeConnection/VBox/HBox/VBoxContainer2/HostButton",
+					"right":"Lobby/BeforeConnection/VBox/HBox/Host/HostIPLine",
+					"left":"Lobby/BeforeConnection/VBox/HBox/CenterContainer/Retour"
+				}
+			},
+
+			"controls_btns":{
+				"controls_ui/Node/bindings/ui_up/Button":{
+					"down":"controls_ui/Node/bindings/ui_down/Button",
+					"up":"controls_ui/Node/bindings/grab/Button",
+					"right":"controls_ui/Node/bindings/cstick_up/Button",
+					"left":"controls_ui/Node/bindings/cstick_up/Button"
+				},
+				"controls_ui/Node/bindings/ui_down/Button":{
+					"down":"controls_ui/Node/bindings/ui_left/Button",
+					"up":"controls_ui/Node/bindings/ui_up/Button",
+					"right":"controls_ui/Node/bindings/cstick_down/Button",
+					"left":"controls_ui/Node/bindings/cstick_down/Button"
+				},
+				"controls_ui/Node/bindings/ui_left/Button":{
+					"down":"controls_ui/Node/bindings/ui_right/Button",
+					"up":"controls_ui/Node/bindings/ui_down/Button",
+					"right":"controls_ui/Node/bindings/cstick_left/Button",
+					"left":"controls_ui/Node/bindings/cstick_left/Button"
+				},
+				"controls_ui/Node/bindings/ui_right/Button":{
+					"down":"controls_ui/Node/bindings/jump/Button",
+					"up":"controls_ui/Node/bindings/ui_left/Button",
+					"right":"controls_ui/Node/bindings/cstick_right/Button",
+					"left":"controls_ui/Node/bindings/cstick_right/Button"
+				},
+				"controls_ui/Node/bindings/jump/Button":{
+					"down":"controls_ui/Node/bindings/shield/Button",
+					"up":"controls_ui/Node/bindings/ui_right/Button",
+					"right":"controls_ui/Node/bindings/Retour_b",
+					"left":"controls_ui/Node/bindings/Retour_b"
+				},
+				"controls_ui/Node/bindings/shield/Button":{
+					"down":"controls_ui/Node/bindings/attack/Button",
+					"up":"controls_ui/Node/bindings/jump/Button",
+					"right":"controls_ui/Node/bindings/Retour_b",
+					"left":"controls_ui/Node/bindings/Retour_b"
+				},
+				"controls_ui/Node/bindings/attack/Button":{
+					"down":"controls_ui/Node/bindings/special/Button",
+					"up":"controls_ui/Node/bindings/shield/Button",
+					"right":"controls_ui/Node/bindings/Retour_b",
+					"left":"controls_ui/Node/bindings/Retour_b"
+				},
+				"controls_ui/Node/bindings/special/Button":{
+					"down":"controls_ui/Node/bindings/grab/Button",
+					"up":"controls_ui/Node/bindings/attack/Button",
+					"right":"controls_ui/Node/bindings/Retour_b",
+					"left":"controls_ui/Node/bindings/Retour_b"
+				},
+				"controls_ui/Node/bindings/grab/Button":{
+					"down":"controls_ui/Node/bindings/ui_up/Button",
+					"up":"controls_ui/Node/bindings/special/Button",
+					"right":"controls_ui/Node/bindings/Retour_b",
+					"left":"controls_ui/Node/bindings/Retour_b"
+				},
+				"controls_ui/Node/bindings/cstick_up/Button":{
+					"down":"controls_ui/Node/bindings/cstick_down/Button",
+					"up":"controls_ui/Node/bindings/Retour_b",
+					"right":"controls_ui/Node/bindings/ui_up/Button",
+					"left":"controls_ui/Node/bindings/ui_up/Button"
+				},
+				"controls_ui/Node/bindings/cstick_down/Button":{
+					"down":"controls_ui/Node/bindings/cstick_left/Button",
+					"up":"controls_ui/Node/bindings/cstick_up/Button",
+					"right":"controls_ui/Node/bindings/ui_down/Button",
+					"left":"controls_ui/Node/bindings/ui_down/Button"
+				},
+				"controls_ui/Node/bindings/cstick_left/Button":{
+					"down":"controls_ui/Node/bindings/cstick_right/Button",
+					"up":"controls_ui/Node/bindings/cstick_down/Button",
+					"right":"controls_ui/Node/bindings/ui_left/Button",
+					"left":"controls_ui/Node/bindings/ui_left/Button"
+				},
+				"controls_ui/Node/bindings/cstick_right/Button":{
+					"down":"controls_ui/Node/bindings/Retour_b",
+					"up":"controls_ui/Node/bindings/cstick_left/Button",
+					"right":"controls_ui/Node/bindings/ui_right/Button",
+					"left":"controls_ui/Node/bindings/ui_right/Button"
+				},
+				"controls_ui/Node/bindings/Retour_b":{
+					"down":"controls_ui/Node/bindings/cstick_up/Button",
+					"up":"controls_ui/Node/bindings/cstick_right/Button",
+					"right":"controls_ui/Node/bindings/jump/Button",
+					"left":"controls_ui/Node/bindings/jump/Button"
+				}
+			}
+		},
+		
+		"stage":{
+			"WALL" : "Wall",
+			"FLOOR" : "Floor",
+			"PLATFORM" : "Platform",
+		},
+		
+		"states":{
+			"STAND" : "stand",
+			"DASH" :  "dash",
+			"RUN" :  "run",
+			"CROUCH" : "crouch",
+			"LANDING" : "landing",
+			"JUMP_SQUAT" : "jump_squat",
+			"SHORT_HOP" : "short_hop",
+			"FULL_HOP" : "full_hop",
+			"SKID" : "skid",
+			"AIR" : "air",
+			"AIR_DODGE" : "air_dodge",
+			"FREE_FALL" : "free_fall",
+			"WALLJUMPLEFT" : "wall_jump_left",
+			"WALLJUMPRIGHT" : "wall_jump_right",
+			"LEDGE_CATCH" : "ledge_catch",
+			"LEDGE_HOLD" : "ledge_hold",
+			"LEDGE_ROLL_FAST" : "ledge_roll_fast",
+			"LEDGE_CLIMB_FAST" : "ledge_climb_fast",
+			"LEDGE_JUMP_FAST" : "ledge_jump_fast",
+			"LEDGE_ROLL_SLOW" : "ledge_climb_slow",
+			"LEDGE_CLIMB_SLOW" : "ledge_climb_slow",
+			"LEDGE_JUMP_SLOW" : "ledge_jump_slow",
+			"NAIR" : "nair",
+			"FAIR" : "fair",
+			"UAIR" : "uair",
+			"BAIR" :  "bair",
+			"DAIR" :  "dair",
+			"TUMBLE" : "tumble"
+		}
+		
+	}
+}
